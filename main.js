@@ -247,7 +247,12 @@
     { n: 'Korea · Samsung, SK hynix', lat: 37.2, lon: 127.2, label: true, dy: -6 },
     { n: 'Yokkaichi · Kioxia', lat: 35.0, lon: 136.6, label: true, dy: 11 }, { n: 'Shanghai', lat: 31.2, lon: 121.5 }, { n: 'Singapore', lat: 1.35, lon: 103.8 }, { n: 'Chandler', lat: 33.3, lon: -111.8 }
   ];
-  var grat = document.getElementById('am-grat'), pts = document.getElementById('am-pts');
+  var grat = document.getElementById('am-grat'), pts = document.getElementById('am-pts'), landG = document.getElementById('am-land'), land = [];
+  fetch('assets/land.json').then(function (r) { return r.json(); }).then(function (polys) {
+    land = polys.map(function (poly) { var el = document.createElementNS(NS, 'path'); landG.appendChild(el); return { el: el, pts: poly }; });
+    draw(lastPhi);
+  }).catch(function () {});
+  var lastPhi = 2.1;
   function proj(lat, lon, phi) {
     var la = lat * Math.PI / 180, lo = lon * Math.PI / 180 - phi;
     var x = Math.cos(la) * Math.sin(lo), y = Math.sin(la), z = Math.cos(la) * Math.cos(lo);
@@ -268,7 +273,14 @@
     points.forEach(function (p) { if (p.vis > 0) { d += (pen ? 'L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); pen = true; } else pen = false; });
     return d;
   }
+  function limb(p) { if (p.vis >= 0) return p; var dx = p.x - CX, dy = p.y - CY, d = Math.hypot(dx, dy) || 1; return { x: CX + dx / d * R, y: CY + dy / d * R, vis: 0 }; }
   function draw(phi) {
+    lastPhi = phi;
+    land.forEach(function (o) {
+      var d = '', any = false;
+      o.pts.forEach(function (q, i) { var p = proj(q[1], q[0], phi); if (p.vis > 0) any = true; p = limb(p); d += (i ? 'L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); });
+      o.el.setAttribute('d', any ? d + 'Z' : '');
+    });
     meridians.forEach(function (el, k) { var lon = k * 30, arr = []; for (var la = -90; la <= 90; la += 6) arr.push(proj(la, lon, phi)); el.setAttribute('d', linePath(arr)); });
     parallels.forEach(function (o) { var arr = []; for (var lo = -180; lo <= 180; lo += 6) arr.push(proj(o.lat, lo, phi)); o.el.setAttribute('d', linePath(arr)); });
     dots.forEach(function (d) {
@@ -289,4 +301,15 @@
   function stop() { running = false; cancelAnimationFrame(raf); }
   if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
   else start();
+})();
+
+/* ---------- hero email: copy the address too, in case no mail app is set up ---------- */
+(function () {
+  var a = document.getElementById('hero-email'); if (!a) return;
+  a.addEventListener('click', function () {
+    var addr = a.getAttribute('data-email'), label = a.textContent;
+    try { if (navigator.clipboard) navigator.clipboard.writeText(addr); } catch (e) {}
+    a.textContent = 'Copied ' + addr; a.classList.add('solid');
+    setTimeout(function () { a.textContent = label; a.classList.remove('solid'); }, 2200);
+  });
 })();

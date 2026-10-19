@@ -670,6 +670,17 @@ section { scroll-margin-top: 70px; }
 .fc-stats .fv { font-size: 1rem; }
 .fc-stats .fl { font-size: .6rem; }
 @media (max-width: 560px) { .fc-stats { grid-template-columns: 1fr; } .fc-media { min-height: 220px; } }
+/* work header vs first chapter */
+.work-head { margin-bottom: 0; padding-bottom: 36px; }
+.chapter.first { border-top: 1.5px solid var(--text); margin-top: 8px; }
+/* Northrop: 2x2 grid so the photo spans exactly the fact card's row */
+#northrop-grumman .ch-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto minmax(300px, auto); gap: 16px 44px; }
+#northrop-grumman .ch-col { display: contents; }
+#northrop-grumman .ch-copy-col > :first-child { grid-area: 1 / 1; }
+#northrop-grumman .ch-copy-col > .photo.fill { grid-area: 2 / 1; min-height: 0; }
+#northrop-grumman .ch-media-col > .explainer { grid-area: 1 / 2; }
+#northrop-grumman .ch-media-col > .fact-card { grid-area: 2 / 2; }
+@media (max-width: 860px) { #northrop-grumman .ch-body { grid-template-columns: 1fr; grid-template-rows: auto; } #northrop-grumman .ch-copy-col > :first-child, #northrop-grumman .ch-copy-col > .photo.fill, #northrop-grumman .ch-media-col > .explainer, #northrop-grumman .ch-media-col > .fact-card { grid-area: auto; } }
 /* chapter media: explainer card beside the copy */
 .ch-media { align-content: start; }
 .photo.lead img, .photo.lead video { aspect-ratio: 3 / 2; }

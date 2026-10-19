@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=202610182012">
+<link rel="stylesheet" href="styles.css?v=202610182015">
 
 <script>
   /* set theme before first paint; ?theme=dark|light overrides for testing */
@@ -81,7 +81,7 @@
       </h1>
       <p class="hero-lede">Mechanical engineer building robots, rockets, and the test systems that prove them.</p>
       <ul class="chips" aria-label="Quick facts">
-        <li class="chip">UCSB ME + Statistics &amp; Data Science</li>
+        <li class="chip">MechE + Stats &amp; DS</li>
         <li class="chip">Class of 2027</li>
         <li class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>Campbell, CA</li>
       </ul>
@@ -90,7 +90,7 @@
         <a class="pill-btn ink" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="pill-btn" href="https://www.linkedin.com/in/terrencelei" target="_blank" rel="noopener">LinkedIn</a>
         <a class="pill-btn" href="https://github.com/terrencelei" target="_blank" rel="noopener">GitHub</a>
-        <a class="pill-btn" href="mailto:terrencelei@ucsb.edu">Email</a>
+        <a class="pill-btn" id="hero-email" href="mailto:terrencelei@ucsb.edu" data-email="terrencelei@ucsb.edu" title="Opens your mail app, and copies the address">Email</a>
       </div>
     </div>
 
@@ -117,14 +117,14 @@
 <!-- ============ WORK ============ -->
 <section id="work" aria-labelledby="work-title">
   <div class="wrap sec" style="padding-bottom:40px">
-    <div class="sec-head reveal">
+    <div class="sec-head work-head reveal">
       <h2 class="sec-title" id="work-title">Selected work</h2>
       <p class="sec-intro">Six projects, from flight hardware to lab automation. Each diagram is a simplified illustration of the idea, drawn without proprietary detail.</p>
     </div>
   </div>
 
   <!-- 01 APPLIED MATERIALS -->
-  <article class="chapter" id="applied-materials" aria-labelledby="ch2-title">
+  <article class="chapter tint first" id="applied-materials" aria-labelledby="ch2-title">
     <div class="wrap">
       <div class="ch-top reveal">
         <span class="ch-num" aria-hidden="true">01</span>
@@ -233,7 +233,8 @@
               <div class="fc-media">
                 <svg id="am-globe" viewBox="0 0 320 236" role="img" aria-label="A slowly rotating globe marking where Applied Materials tools run: Santa Clara, Hillsboro, Boise, Dresden, Hsinchu, Pyeongtaek, Icheon, Yokkaichi and more" preserveAspectRatio="xMidYMid meet">
                   <defs><clipPath id="am-globe-clip"><circle cx="150" cy="118" r="92"/></clipPath></defs>
-                  <circle cx="150" cy="118" r="92" class="f-tag s-ink" stroke-width="1.5"/>
+                  <circle cx="150" cy="118" r="92" class="s-ink" style="fill:var(--g-sec);fill-opacity:.18" stroke-width="1.5"/>
+                  <g id="am-land" clip-path="url(#am-globe-clip)" style="fill:var(--g-ink);fill-opacity:.22" stroke="none"></g>
                   <g id="am-grat" clip-path="url(#am-globe-clip)" class="s-mut" stroke-width=".8" fill="none" opacity=".55"></g>
                   <g id="am-pts"></g>
                   <text class="svg-t" x="150" y="232" text-anchor="middle" style="font-size:9px">where the tools run · 1000+ worldwide</text>
@@ -910,6 +911,6 @@
   </div>
 </footer>
 
-<script src="main.js?v=202610182012"></script>
+<script src="main.js?v=202610182015"></script>
 </body>
 </html>
