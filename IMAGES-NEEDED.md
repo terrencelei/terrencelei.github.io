@@ -12,11 +12,12 @@ Every image slot on the site, what to shoot, and where the file goes. Placeholde
 | `assets/placeholders/rocket-flight-hardware.svg` | 01 Gaucho Rocket Project | Assembled vehicle or avionics bay on the bench, or the rocket on the rail at launch. | 4:3 (e.g. 1200x900) |
 | `assets/placeholders/rocket-design-review.svg` | 01 Gaucho Rocket Project | You presenting at a design review, or a CAD / FEA screenshot of a part you designed. | 4:3 |
 | `assets/placeholders/applied-materials.svg` | 02 Applied Materials | Non-proprietary only: you at the Santa Clara campus or an intern event. | 4:3 |
-| `assets/placeholders/northrop-grumman.svg` | 03 Northrop Grumman | Non-proprietary only: an approved intern photo or the Goleta site exterior. | 4:3 |
+| `assets/placeholders/solar-array-hinge.svg` | 03 Northrop Grumman | Close-up of the solar array hinge assembly (spring, damper, heater, limit switch) or a deployable array assembly. Only a photo Northrop has cleared for public release. | 4:3 |
 | `assets/placeholders/begley-lab.svg` | 04 Begley Lab, UCSB | Robot arm and camera rig at the workbench (with lab permission), or you at the bench. | 4:3 |
 | `assets/placeholders/genentech-capstone.svg` | 05 Genentech capstone | xArm 6 in simulation (RViz / MoveIt screenshot) or a team photo. | 4:3 |
 
-Already real (copied from the Autonomous Shopping Cart site, no action needed):
+Already real: `assets/cygnus-capture.jpg` and `assets/cygnus-arrays.jpg` are NASA photos of the Cygnus spacecraft (iss071e418233, iss071e329920; NASA imagery is public domain, credited in the captions).
+Also real (copied from the Autonomous Shopping Cart site, no action needed):
 `assets/cart-photo.jpg`, `assets/cad.jpg`, `assets/vision.jpg`, `assets/follow.mp4`, `assets/follow-poster.jpg`
 (chapter 06).
 
@@ -24,8 +25,8 @@ Already real (copied from the Autonomous Shopping Cart site, no action needed):
 
 - **Applied Materials:** the actuator is patent pending. No photos of hardware, prototypes, CAD,
   drawings, labs or badges with internal info. The site's diagram is deliberately abstract; keep it that way.
-- **Northrop Grumman:** no photos of flight hardware, solar arrays, test vehicles, drawings or any
-  facility interior. Use only photos Northrop approved for public release, or skip the image.
+- **Northrop Grumman:** the Cygnus photos on the site are NASA's. For the hinge slot, use only a photo
+  Northrop has cleared for public release; no drawings, test vehicles or facility interiors.
 - **Genentech capstone:** the project is under the sponsor's invention-assignment terms. No sponsor
   data, results, internal hardware or documents; simulation screenshots and team photos only, and
   check with the team/sponsor before posting.
