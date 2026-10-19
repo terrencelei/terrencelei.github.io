@@ -416,6 +416,15 @@ section { scroll-margin-top: 70px; }
 .blink { animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: .15; } }
 .scan { animation: scan 1.5s ease-in-out infinite alternate; }
+.gantry { animation: gantry 4s ease-in-out infinite; }
+@keyframes gantry { 0%, 8% { transform: translateX(-8px); } 46%, 54% { transform: translateX(124px); } 92%, 100% { transform: translateX(-8px); } }
+.lsw-a { animation: lsw-a 4s steps(1) infinite; } .lsw-b { animation: lsw-b 4s steps(1) infinite; }
+@keyframes lsw-a { 0%, 8% { opacity: 1; } 9%, 91% { opacity: .25; } 92%, 100% { opacity: 1; } }
+@keyframes lsw-b { 0%, 45% { opacity: .25; } 46%, 54% { opacity: 1; } 55%, 100% { opacity: .25; } }
+.sort-1 { animation: sort-1 4s ease-in-out infinite; } .sort-2 { animation: sort-2 4s ease-in-out infinite; animation-delay: 2s; }
+@keyframes sort-1 { 0% { transform: translate(0,0); opacity: 1; } 35% { transform: translate(90px,0); } 48% { transform: translate(120px,-20px); opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes sort-2 { 0% { transform: translate(0,0); opacity: 1; } 35% { transform: translate(90px,0); } 48% { transform: translate(120px,16px); opacity: 1; } 50%, 100% { opacity: 0; } }
+.loop-dot { animation: spin 4s linear infinite; }
 @keyframes scan { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
 .pipe-n { animation: pipe 3s ease infinite; animation-delay: var(--d, 0s); }
 @keyframes pipe { 0%, 100% { fill: var(--g-tag); } 15%, 35% { fill: var(--g-acc); } }
@@ -602,7 +611,7 @@ section { scroll-margin-top: 70px; }
 @media (max-width: 640px) { .ch-thumbs.four, .ch-thumbs.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .ch-thumbs .photo img, .ch-thumbs .photo video { aspect-ratio: 4 / 3; }
 .ch-thumbs .photo figcaption { font-size: .66rem; padding: 2px 7px; left: 8px; bottom: 8px; }
-.ch-col > .fact-card.fill { flex: 0 1 auto; min-height: 0; }
+#begley-lab .ch-col > .fact-card.fill { flex: 0 0 auto; min-height: 0; }
 .ch-col > .ch-thumbs.fill { min-height: 150px; }
 .ch-thumbs.fill .photo { position: relative; min-height: 150px; }
 .ch-thumbs.fill .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; aspect-ratio: auto; }

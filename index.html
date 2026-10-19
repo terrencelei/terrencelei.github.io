@@ -363,7 +363,7 @@
             <li>Performed tolerance analysis on legacy flight components and released 2D GD&amp;T drawings.</li>
           </ul>
         </div>
-            <figure class="photo fill reveal"><img src="assets/cygnus-berth.jpg" width="1200" height="800" loading="lazy" alt="Northrop Grumman's Cygnus spacecraft held by Canadarm2 as it is installed on the International Space Station, its cymbal-shaped UltraFlex solar arrays deployed, with the station's own arrays and Earth's horizon behind"><figcaption>Cygnus arriving at the ISS, UltraFlex arrays deployed · photo NASA</figcaption></figure>
+            <figure class="photo fill reveal"><img src="assets/cygnus-flight.jpg" width="1500" height="1000" loading="lazy" alt="Northrop Grumman's Cygnus spacecraft in free flight above Earth, its two round UltraFlex solar arrays fully deployed on either side"><figcaption>Cygnus in free flight, UltraFlex arrays deployed · NASA</figcaption></figure>
         </div>
         <div class="ch-col ch-media-col">
           <figure class="fig-card explainer reveal" style="margin:0">
@@ -458,16 +458,16 @@
             <li>Set up a SQL data flow that turns raw test results into insights.</li>
           </ul>
         </div>
-            <figure class="photo natural reveal">
+            <figure class="photo fill reveal">
             <video class="autoplay-in-view" src="assets/begley-test.mp4" poster="assets/begley-test-poster.jpg" muted loop playsinline preload="metadata" width="900" height="720" aria-label="A collaborative robot arm on an optical breadboard picking up and placing 3D-printed placeholder samples during an early motion test"></video>
             <figcaption>Early test: 3D-printed placeholders, real motion profiles</figcaption>
           </figure>
         </div>
         <div class="ch-col ch-media-col">
           <figure class="fig-card explainer reveal" style="margin:0">
-            <svg viewBox="0 0 520 320" role="img" aria-labelledby="hl-t hl-d">
+            <svg viewBox="0 0 520 490" role="img" aria-labelledby="hl-t hl-d">
               <title id="hl-t">Automated test cell explainer</title>
-              <desc id="hl-d">A robot arm swings specimens from a tray to a test fixture while an overhead camera scans the bench and a status monitor blinks. A counter climbs toward 50,000 tests per day, and data moves from raw results through SQL to insights.</desc>
+              <desc id="hl-d">A robot arm swings specimens from a tray to a test fixture while an overhead camera scans the bench and a status monitor blinks. Below: a gantry carriage homes against limit switches at each end of its rail, tested specimens are sorted into pass and fail bins, and a closed control loop cycles sense, decide, act and feedback. A counter climbs toward 50,000 tests per day, and data moves from raw results through SQL to insights.</desc>
               <!-- bench -->
               <line class="s-ink" stroke-width="2" x1="14" y1="230" x2="270" y2="230"/>
               <rect class="f-tag s-ink" stroke-width="1.5" x="18" y="210" width="62" height="20" rx="3"/>
@@ -519,6 +519,35 @@
               <text class="svg-t mid" x="260" y="291" text-anchor="middle">SQL</text>
               <text class="svg-t mid" x="430" y="291" text-anchor="middle">insights</text>
               <path class="s-mut" stroke-width="2" d="M162 287 H186 M180 282 L186 287 L180 292 M332 287 H356 M350 282 L356 287 L350 292"/>
+                          <!-- band 2: gantry homing, sorting, control loop -->
+              <line class="s-line" stroke-width="1" x1="14" y1="330" x2="506" y2="330"/>
+              <!-- gantry with limit switches -->
+              <text class="svg-t" x="20" y="352">gantry homing · limit switches</text>
+              <line class="s-ink" stroke-width="4" x1="30" y1="392" x2="200" y2="392"/>
+              <rect class="an lsw-a f-acc" x="22" y="380" width="10" height="24" rx="2"/>
+              <rect class="an lsw-b f-acc" x="198" y="380" width="10" height="24" rx="2"/>
+              <g class="an gantry"><rect class="f-surf s-ink" stroke-width="2" x="40" y="378" width="34" height="28" rx="5"/><line class="s-ink" stroke-width="3" x1="57" y1="406" x2="57" y2="426"/><rect class="f-sec" x="51" y="426" width="12" height="8"/></g>
+              <text class="svg-t" x="27" y="446">home</text><text class="svg-t" x="203" y="446" text-anchor="end">end stop</text>
+              <text class="svg-t" x="20" y="470">switch closes → position known</text>
+              <!-- sorting -->
+              <text class="svg-t" x="236" y="352">get + sort specimens</text>
+              <line class="s-ink" stroke-width="2" x1="236" y1="392" x2="330" y2="392"/>
+              <path class="s-ink" stroke-width="2" fill="none" d="M330 392 L352 376 M330 392 L352 408"/>
+              <rect class="f-tag s-ink" stroke-width="1.5" x="354" y="362" width="36" height="24" rx="4"/><text class="svg-t ink" x="372" y="378" text-anchor="middle" style="font-size:9px">pass</text>
+              <rect class="f-tag s-ink" stroke-width="1.5" x="354" y="398" width="36" height="24" rx="4"/><text class="svg-t ink" x="372" y="414" text-anchor="middle" style="font-size:9px">fail</text>
+              <rect class="an sort-1 f-sec" x="240" y="386" width="10" height="10"/>
+              <rect class="an sort-2 f-acc" x="240" y="386" width="10" height="10"/>
+              <text class="svg-t" x="236" y="446">tested</text><text class="svg-t" x="300" y="446">binned</text>
+              <text class="svg-t" x="236" y="470">each result tagged by ID</text>
+              <!-- control loop -->
+              <text class="svg-t" x="416" y="352">control loop</text>
+              <circle class="s-line" stroke-width="2" fill="none" cx="444" cy="410" r="32"/>
+              <g class="an loop-dot" style="transform-box:view-box;transform-origin:444px 410px"><circle class="f-acc" cx="444" cy="378" r="5"/></g>
+              <text class="svg-t ink" x="444" y="368" text-anchor="middle" style="font-size:9px">sense</text>
+              <text class="svg-t ink" x="481" y="414" text-anchor="start" style="font-size:9px">decide</text>
+              <text class="svg-t ink" x="444" y="458" text-anchor="middle" style="font-size:9px">act</text>
+              <text class="svg-t ink" x="407" y="414" text-anchor="end" style="font-size:9px">log</text>
+              <text class="svg-t" x="444" y="478" text-anchor="middle" style="font-size:9px">logged to SQL each cycle</text>
             </svg>
             <figcaption class="fig-cap"><span><b>Watch, run, record.</b> Cameras confirm the bench state, the arm runs the sequence, and SQL turns the results into insight.</span><span class="live">illustration</span></figcaption>
           </figure>
@@ -708,11 +737,6 @@
             <figure class="photo"><img src="assets/cad.jpg" width="1200" height="920" loading="lazy" alt="CAD model of the cart's drive and electronics"><figcaption>CAD</figcaption></figure>
             <figure class="photo"><video class="autoplay-in-view" src="assets/cartview.mp4" poster="assets/cartview-poster.jpg" muted loop playsinline preload="metadata" width="640" height="484" aria-label="Through the cart's camera: the locked shopper boxed in green, other people in red, with live distance and angle"></video><figcaption>Vision</figcaption></figure>
           </div>
-          <div class="fact-card fill reveal">
-              <div><div class="fv">30 fps</div><div class="fl">perception + control loop</div></div>
-              <div><div class="fv">100%</div><div class="fl">on-device, no cloud</div></div>
-              <div><div class="fv">2.0 m</div><div class="fl">following distance</div></div>
-            </div>
         </div>
       </div>
     </div>
