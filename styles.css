@@ -349,18 +349,20 @@ section { scroll-margin-top: 70px; }
 .spin { animation: spin 1.2s linear infinite; }
 .spin.slow { animation-duration: 6s; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.dir-a { animation: dir-a 2.4s ease-in-out infinite; }
-.dir-b { animation: dir-b 2.4s ease-in-out infinite; }
-@keyframes dir-a { 0%, 45% { opacity: 1; transform: translateX(0); } 22% { transform: translateX(10px); } 50%, 100% { opacity: .15; transform: translateX(0); } }
-@keyframes dir-b { 0%, 50% { opacity: .15; transform: translateY(0); } 72% { transform: translateY(-10px); } 55%, 95% { opacity: 1; } 100% { opacity: .15; } }
-.slider-a { animation: slider-a 2.4s ease-in-out infinite; }
-.slider-b { animation: slider-b 2.4s ease-in-out infinite; }
-@keyframes slider-a { 0% { transform: none; } 25% { transform: translateX(34px); } 50%, 100% { transform: none; } }
-@keyframes slider-b { 0%, 50% { transform: none; } 75% { transform: translateY(-30px); } 100% { transform: none; } }
-.cpl-a { animation: cpl 2.4s steps(1) infinite; }
-@keyframes cpl { 0% { opacity: 1; } 50% { opacity: .2; } }
-.cpl-b { animation: cpl-b 2.4s steps(1) infinite; }
-@keyframes cpl-b { 0% { opacity: .2; } 50% { opacity: 1; } }
+.gate { animation: gate 3.2s ease-in-out infinite; }
+@keyframes gate {
+  0%, 6%   { transform: translate(0, 0); }
+  30%, 40% { transform: translate(0, -102px); }
+  52%, 70% { transform: translate(40px, -102px); }
+  80%, 84% { transform: translate(0, -102px); }
+  100%     { transform: translate(0, 0); }
+}
+.gate-port { animation: gate-port 3.2s steps(1) infinite; }
+@keyframes gate-port { 0%, 51% { opacity: .18; } 52%, 70% { opacity: .9; } 71%, 100% { opacity: .18; } }
+.lbl-travel { animation: lbl-travel 3.2s ease infinite; }
+@keyframes lbl-travel { 0%, 30% { opacity: 1; } 40%, 100% { opacity: .3; } }
+.lbl-seal { animation: lbl-seal 3.2s ease infinite; }
+@keyframes lbl-seal { 0%, 38% { opacity: .3; } 44%, 70% { opacity: 1; } 78%, 100% { opacity: .3; } }
 
 /* 03 failure analysis */
 .dot-c { fill: var(--c); animation: classify 3s ease infinite; }
