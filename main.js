@@ -285,8 +285,8 @@
     parallels.forEach(function (o) { var arr = []; for (var lo = -180; lo <= 180; lo += 6) arr.push(proj(o.lat, lo, phi)); o.el.setAttribute('d', linePath(arr)); });
     dots.forEach(function (d) {
       var p = proj(d.s.lat, d.s.lon, phi), on = p.vis > 0.05;
-      d.g.setAttribute('opacity', on ? Math.min(1, p.vis * 2.5) : 0);
-      d.t.setAttribute('opacity', Math.max(0, Math.min(1, (p.vis - 0.45) * 4)));   // labels only while facing the viewer
+      d.g.setAttribute('opacity', on ? 1 : 0);                 // no limb shading: markers are either on the near side or hidden
+      d.t.setAttribute('opacity', p.vis > 0.45 ? 1 : 0);       // labels only while facing the viewer
       d.c.setAttribute('cx', p.x); d.c.setAttribute('cy', p.y);
       var right = p.x >= CX;   // labels point outward, away from the globe centre
       d.t.setAttribute('x', p.x + (right ? 6 : -6)); d.t.setAttribute('y', p.y + (d.s.dy !== undefined ? d.s.dy : (d.s.home ? 11 : 3))); d.t.setAttribute('text-anchor', right ? 'start' : 'end');
