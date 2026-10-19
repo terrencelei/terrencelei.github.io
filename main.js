@@ -211,3 +211,27 @@
   if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
   else start();
 })();
+
+/* ---------- Applied Materials: crank-slider linkage driven with the gears ---------- */
+(function () {
+  var svg = document.getElementById('am-scene'); if (!svg) return;
+  var g1 = document.getElementById('am-gear1'), g2 = document.getElementById('am-gear2'), link = document.getElementById('am-link'), slider = document.getElementById('am-slider');
+  var C = { x: 78, y: 154 }, R = 9, L = 34, SX = 95;
+  function draw(a) {
+    g1.setAttribute('transform', 'rotate(' + (a * 180 / Math.PI) + ' 78 154)');
+    g2.setAttribute('transform', 'rotate(' + (-a * 180 / Math.PI * 15 / 7) + ' 108 164)');
+    var px = C.x + R * Math.cos(a), py = C.y + R * Math.sin(a);
+    var sy = py - Math.sqrt(Math.max(0, L * L - (SX - px) * (SX - px)));
+    link.setAttribute('x1', px); link.setAttribute('y1', py); link.setAttribute('x2', SX); link.setAttribute('y2', sy);
+    slider.setAttribute('cy', sy);
+  }
+  var reduced = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || document.documentElement.classList.contains('static');
+  draw(-Math.PI / 2);
+  if (reduced) return;
+  var running = false, raf = 0;
+  function tick(now) { if (!running) return; raf = requestAnimationFrame(tick); draw((now / 1000) * 2 * Math.PI / 4); }
+  function start() { if (running) return; running = true; raf = requestAnimationFrame(tick); }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
+  else start();
+})();
