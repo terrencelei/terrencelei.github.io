@@ -61,3 +61,8 @@ screenshot sliced one section per page:
    `first.save('Terrence_Lei_Portfolio.pdf', save_all=True, append_images=rest, resolution=144, quality=82)`.
 
 The application agent keeps the result at `~/application-agent/private/Terrence_Lei_Portfolio.pdf`.
+
+## Cache busting
+
+GitHub Pages serves `styles.css` and `main.js` with a 10-minute cache. `index.html` references them
+with a `?v=YYYYMMDDHHMM` query; bump it whenever either file changes so browsers fetch the new copy.
