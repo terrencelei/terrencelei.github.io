@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=202610181945">
+<link rel="stylesheet" href="styles.css?v=202610181949">
 
 <script>
   /* set theme before first paint; ?theme=dark|light overrides for testing */
@@ -491,32 +491,33 @@
                 <line id="dl-legA" x1="180" y1="222" x2="172" y2="250"/><line id="dl-legB" x1="180" y1="222" x2="188" y2="250"/>
                 <line id="dl-up2" x1="180" y1="188" x2="200" y2="210"/><line id="dl-fore2" x1="200" y1="210" x2="220" y2="222"/>
               </g>
-              <!-- gantry rail + limit switches -->
+              <!-- gantry rail + limit switches; the carriage carries the camera and is driven by script -->
               <line x1="70" y1="64" x2="330" y2="64" stroke="#7D786E" stroke-width="4"/>
-              <rect class="an lsw-a" x="62" y="52" width="10" height="24" rx="2" style="fill:var(--g-acc)"/>
-              <rect class="an lsw-b" x="328" y="52" width="10" height="24" rx="2" style="fill:var(--g-acc)"/>
-              <g class="an gantry"><rect x="80" y="50" width="34" height="28" rx="5" fill="#2A2F35" stroke="#EDE9E1" stroke-width="2"/><circle class="an blink" cx="97" cy="64" r="3" style="fill:var(--g-acc)"/></g>
-              <text x="200" y="92" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">gantry homes on limit switches</text>
-              <!-- camera -->
-              <g class="an scan" style="transform-box:view-box;transform-origin:430px 72px"><path d="M430 72 L370 250 L490 250 Z" style="fill:var(--g-acc)" opacity=".14"/></g>
-              <rect x="412" y="58" width="36" height="22" rx="4" fill="#EDE9E1"/><circle cx="430" cy="69" r="6" fill="#14181C"/><circle cx="430" cy="69" r="3" style="fill:var(--g-acc)"/>
-              <text x="430" y="98" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">camera watches</text>
+              <rect id="dl-lswA" x="62" y="52" width="10" height="24" rx="2" style="fill:var(--g-acc)" opacity=".25"/>
+              <rect id="dl-lswB" x="328" y="52" width="10" height="24" rx="2" style="fill:var(--g-acc)" opacity=".25"/>
+              <g id="dl-cone"><path id="dl-conePath" d="M200 96 L150 250 L250 250 Z" style="fill:var(--g-acc)" opacity=".14"/></g>
+              <g id="dl-carriage">
+                <rect x="-17" y="-14" width="34" height="28" rx="5" fill="#2A2F35" stroke="#EDE9E1" stroke-width="2"/>
+                <circle class="an blink" cx="0" cy="0" r="3" style="fill:var(--g-acc)"/>
+                <rect x="-12" y="16" width="24" height="16" rx="3" fill="#EDE9E1"/><circle cx="0" cy="24" r="4.5" fill="#14181C"/><circle cx="0" cy="24" r="2.2" style="fill:var(--g-acc)"/>
+              </g>
+              <text x="330" y="130" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">gantry camera, homed on limit switches</text>
               <!-- bench -->
               <line x1="30" y1="250" x2="490" y2="250" stroke="#EDE9E1" stroke-width="2"/>
-              <rect x="40" y="230" width="70" height="20" rx="3" fill="#2A2F35" stroke="#B5B0A6" stroke-width="1.5"/>
-              <g fill="#6FB3A8"><rect x="48" y="220" width="10" height="10"/><rect x="64" y="220" width="10" height="10"/><rect x="80" y="220" width="10" height="10"/></g>
-              <text x="75" y="270" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">specimens</text>
+              <rect x="62" y="230" width="70" height="20" rx="3" fill="#2A2F35" stroke="#B5B0A6" stroke-width="1.5"/>
+              <g fill="#6FB3A8"><rect x="70" y="220" width="10" height="10"/><rect x="86" y="220" width="10" height="10"/><rect x="102" y="220" width="10" height="10"/></g>
+              <text x="97" y="270" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">specimens</text>
               <!-- robot arm (automated mode), links solved by script to carry the same sample -->
               <g id="dl-robot">
-                <rect x="166" y="234" width="44" height="16" rx="4" fill="#EDE9E1"/>
-                <line id="dl-up" x1="188" y1="232" x2="188" y2="148" stroke="#EDE9E1" stroke-width="13" stroke-linecap="round"/>
-                <line id="dl-fore" x1="188" y1="148" x2="188" y2="192" style="stroke:var(--g-acc)" stroke-width="10" stroke-linecap="round"/>
-                <circle id="dl-elbow" cx="188" cy="148" r="7" fill="#14181C" stroke="#EDE9E1" stroke-width="3"/>
+                <rect x="14" y="236" width="36" height="14" rx="4" fill="#EDE9E1"/>
+                <line id="dl-up" x1="32" y1="238" x2="60" y2="110" stroke="#EDE9E1" stroke-width="12" stroke-linecap="round"/>
+                <line id="dl-fore" x1="60" y1="110" x2="180" y2="170" style="stroke:var(--g-acc)" stroke-width="9" stroke-linecap="round"/>
+                <circle id="dl-elbow" cx="60" cy="110" r="7" fill="#14181C" stroke="#EDE9E1" stroke-width="3"/>
                 <path id="dl-grip" d="M-8 -10 V-4 H8 V-10" fill="none" stroke="#EDE9E1" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="188" cy="232" r="7" fill="#14181C" stroke="#EDE9E1" stroke-width="3"/>
+                <circle cx="32" cy="238" r="7" fill="#14181C" stroke="#EDE9E1" stroke-width="3"/>
               </g>
               <rect id="dl-sample" x="-5" y="-5" width="10" height="10" fill="#6FB3A8"/>
-              <text x="188" y="270" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">loads + unloads</text>
+              <text x="200" y="270" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#B5B0A6">loads + unloads</text>
               <!-- test fixture -->
               <rect x="262" y="214" width="60" height="36" rx="4" fill="#2A2F35" stroke="#EDE9E1" stroke-width="2"/>
               <line class="an blink" x1="274" y1="224" x2="310" y2="224" style="stroke:var(--g-acc)" stroke-width="3"/>
@@ -529,8 +530,8 @@
               <!-- feedback loop: fixture -> SQL -> gantry/arm -->
               <path class="an loop-dash" d="M292 214 V160 H470 V134" fill="none" style="stroke:var(--g-acc)" stroke-width="1.5" stroke-dasharray="5 5"/>
               <rect x="440" y="106" width="60" height="28" rx="14" fill="#2A2F35" stroke="#EDE9E1" stroke-width="1.5"/><text x="470" y="124" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#EDE9E1">SQL</text>
-              <path class="an loop-dash" d="M440 120 H350 V84" fill="none" style="stroke:var(--g-acc)" stroke-width="1.5" stroke-dasharray="5 5"/>
-              <path d="M345 86 L350 76 L355 86 Z" style="fill:var(--g-acc)"/>
+              <path class="an loop-dash" d="M440 120 H350 V80" fill="none" style="stroke:var(--g-acc)" stroke-width="1.5" stroke-dasharray="5 5"/>
+              <path d="M345 82 L350 72 L355 82 Z" style="fill:var(--g-acc)"/>
               <text x="300" y="154" text-anchor="start" font-family="IBM Plex Mono, monospace" font-size="9" style="fill:var(--g-acc)">result logged</text>
               <text x="356" y="112" text-anchor="start" font-family="IBM Plex Mono, monospace" font-size="9" style="fill:var(--g-acc)">next move</text>
               <!-- status chips -->
@@ -890,6 +891,6 @@
   </div>
 </footer>
 
-<script src="main.js?v=202610181945"></script>
+<script src="main.js?v=202610181949"></script>
 </body>
 </html>
