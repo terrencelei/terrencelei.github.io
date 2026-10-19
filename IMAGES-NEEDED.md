@@ -11,9 +11,9 @@ Every image slot on the site, what to shoot, and where the file goes. Placeholde
 | `assets/placeholders/og.svg` | Social share preview (Open Graph / Twitter card) | Name + "Mechanical Engineer" over a project photo. Save as **`assets/og.jpg`** and point the `og:image` and `twitter:image` tags at it; many sites ignore SVG previews. | 1200x630 |
 | `assets/placeholders/rocket-flight-hardware.svg` | 01 Gaucho Rocket Project | Assembled vehicle or avionics bay on the bench, or the rocket on the rail at launch. | 4:3 (e.g. 1200x900) |
 | `assets/placeholders/rocket-design-review.svg` | 01 Gaucho Rocket Project | You presenting at a design review, or a CAD / FEA screenshot of a part you designed. | 4:3 |
-| `assets/placeholders/genentech-capstone.svg` | 05 Genentech capstone | xArm 6 in simulation (RViz / MoveIt screenshot) or a team photo. | 4:3 |
 
 Already real: `assets/amat-fab.jpg` is a public-domain U.S. State Department photo of an Applied Materials cleanroom (Maydan Technology Center, 2022, via Wikimedia Commons), cropped to 4:3. `assets/cygnus-arrays.jpg` is a NASA photo of the Cygnus spacecraft (iss071e329920; NASA imagery is public domain, credited in the captions).
+Also real: `assets/moveit-rviz.jpg` is a generic MoveIt/RViz screenshot from the MoveIt 2 tutorials repository (BSD-3, PickNik/Willow Garage), stand-in until a real xArm 6 simulation screenshot exists.
 Also real: `assets/begley-test.mp4` (+ poster) is Terrence's own early Begley Lab test footage, cropped square.
 Also real (copied from the Autonomous Shopping Cart site, no action needed):
 `assets/cart-photo.jpg`, `assets/cad.jpg`, `assets/vision.jpg`, `assets/follow.mp4`, `assets/follow-poster.jpg`
