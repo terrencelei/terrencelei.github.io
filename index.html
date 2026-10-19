@@ -425,7 +425,7 @@
             </svg>
             <figcaption class="fig-cap"><span><b>Concept, not a drawing.</b> Spring opens the panel, the damper paces it, the heater keeps the damper in range, and the limit switch confirms the panel reached the stop.</span><span class="live">illustration</span></figcaption>
           </figure>
-          <figure class="photo lead reveal"><img src="assets/cygnus-arrays.jpg" width="1280" height="853" loading="lazy" alt="Head-on view of Northrop Grumman's Cygnus spacecraft with both cymbal-shaped UltraFlex solar arrays fully deployed, held by the space station's Canadarm2"><figcaption>Cygnus, both UltraFlex arrays deployed · photo NASA</figcaption></figure>
+          <figure class="photo lead reveal"><img src="assets/cygnus-berth.jpg" width="1200" height="800" loading="lazy" alt="Northrop Grumman's Cygnus spacecraft held by Canadarm2 as it is installed on the International Space Station, its cymbal-shaped UltraFlex solar arrays deployed, with the station's own arrays and Earth's horizon behind"><figcaption>Cygnus arriving at the ISS, UltraFlex arrays deployed · photo NASA</figcaption></figure>
         </div>
       </div>
     </div>
@@ -610,42 +610,72 @@
         <div>
           <p class="ch-kind">Junior capstone</p>
           <h3 class="ch-title" id="ch6-title">Autonomous Shopping Cart</h3>
-          <p class="ch-role"><b>Team of four</b>, Apr – Jun 2026, UC Santa Barbara</p>
+          <p class="ch-role"><b>Team Zero</b>, Apr – Jun 2026, UC Santa Barbara</p>
         </div>
       </div>
       <div class="ch-body">
         <div class="ch-copy reveal">
-          <p class="ch-hook">A shopping cart that follows its shopper.</p>
-          <p class="ch-prose">We turned consumer-product requirements into one integrated machine: motors, encoders, power electronics, embedded control, onboard compute and machine vision.</p>
+          <p class="ch-hook">A cart that picks one shopper out of a crowd and follows, with all of the intelligence on board.</p>
+          <p class="ch-prose">Team Zero's junior capstone. The hardware is modest, a Raspberry Pi 5, an AI camera and an ESP32, so the project was really the software: on-device person detection and re-identification, a tracking lock that survives occlusion, and self-tuning motion control, all at 30 fps with no cloud.</p>
           <ul class="bullets">
-            <li>Raspberry Pi 5 with an IMX500 AI camera running YOLO11n finds and tracks the shopper.</li>
-            <li>An ESP32 drives TB9051FTG motor drivers from a 12 V LiPo, with encoder feedback.</li>
-            <li>Follow, obstacle avoidance and reacquisition were tested and refined iteratively.</li>
+            <li><b>Perception:</b> YOLO11n runs on the IMX500 camera's own neural processor, ByteTrack tracks everyone in view, and a regression-trained color-fingerprint matcher re-identifies the shopper after occlusions. Everyone else becomes an obstacle.</li>
+            <li><b>Controls:</b> continuous damped-proportional distance and steering laws with deadband, hysteresis and slew limits, a kick-start that beats floor friction, and a nine-mode state machine for follow, blocked, search and return-home.</li>
+            <li><b>Learning:</b> the cart learns its own linear and angular momentum from every stop and turn and brakes early to land on target, with no calibration session. Return-home runs on dead-reckoned odometry with wheel-slip rejection.</li>
           </ul>
           <div class="ch-links">
             <a class="pill-btn solid" href="https://terrencelei.github.io/Autonomous-Shopping-Cart/" target="_blank" rel="noopener">See the project site</a>
             <a class="pill-btn" href="https://github.com/terrencelei/Autonomous-Shopping-Cart" target="_blank" rel="noopener">View the code</a>
           </div>
-          <p class="credit">Team: Terrence Lei, Jonah Lee, Damian Martinez, Jack Lei.</p>
+          <p class="credit">Team Zero: Terrence Lei, Jonah Lee, Damian Martinez, Jack Lei.</p>
         </div>
         <div class="ch-media">
           <figure class="fig-card explainer reveal" style="margin:0">
-            <svg viewBox="0 0 520 150" role="img" aria-labelledby="sc-t sc-d">
-              <title id="sc-t">See, think, move loop</title>
-              <desc id="sc-d">Three stages light up in turn: see, with the IMX500 camera and YOLO11n; think, on the Raspberry Pi 5; move, through the ESP32 and motor drivers. Encoder feedback loops back from move to think.</desc>
-              <rect class="an stm-n f-tag" style="--d:0s" x="10" y="20" width="150" height="76" rx="18"/>
-              <rect class="an stm-n f-tag" style="--d:1s" x="185" y="20" width="150" height="76" rx="18"/>
-              <rect class="an stm-n f-tag" style="--d:2s" x="360" y="20" width="150" height="76" rx="18"/>
-              <text class="svg-t big" x="85" y="54" text-anchor="middle" style="font-size:22px">See</text>
-              <text class="svg-t ink" x="85" y="78" text-anchor="middle">IMX500 + YOLO11n</text>
-              <text class="svg-t big" x="260" y="54" text-anchor="middle" style="font-size:22px">Think</text>
-              <text class="svg-t ink" x="260" y="78" text-anchor="middle">Raspberry Pi 5</text>
-              <text class="svg-t big" x="435" y="54" text-anchor="middle" style="font-size:22px">Move</text>
-              <text class="svg-t ink" x="435" y="78" text-anchor="middle">ESP32 + TB9051FTG</text>
-              <path class="s-mut" stroke-width="2" d="M162 58 H182 M176 53 L182 58 L176 63 M337 58 H357 M351 53 L357 58 L351 63"/>
-              <path class="s-acc" stroke-width="2" stroke-dasharray="5 5" d="M435 98 V124 H260 V102"/>
-              <path class="f-acc" d="M254 108 L260 98 L266 108 Z"/>
-              <text class="svg-t" x="348" y="142" text-anchor="middle">encoder feedback</text>
+            <svg viewBox="0 0 520 300" role="img" aria-labelledby="sc-t sc-d">
+              <title id="sc-t">Shopping cart software explainer</title>
+              <desc id="sc-d">Three rows. See: the camera's neural processor runs YOLO11n, ByteTrack assigns IDs, and a trained color re-identification keeps the lock on the shopper; a pulse travels along the row. Think: a mode state machine (follow, blocked, search, return) feeds damped-proportional distance and steering laws. Move: the ESP32 drives the wheels, encoders report real motion, and an online inertia learner feeds learned momentum back into the control laws.</desc>
+              <!-- row 1: see -->
+              <text class="svg-t" x="20" y="18">SEE · all on the camera and the Pi</text>
+              <rect class="f-surf s-ink" stroke-width="2" x="20" y="28" width="140" height="56" rx="10"/>
+              <text class="svg-t mid" x="90" y="52" text-anchor="middle">IMX500 NPU</text>
+              <text class="svg-t" x="90" y="68" text-anchor="middle">YOLO11n · 30 fps</text>
+              <rect class="f-surf s-ink" stroke-width="2" x="190" y="28" width="140" height="56" rx="10"/>
+              <text class="svg-t mid" x="260" y="52" text-anchor="middle">ByteTrack</text>
+              <text class="svg-t" x="260" y="68" text-anchor="middle">IDs for everyone</text>
+              <rect class="f-surf s-ink" stroke-width="2" x="360" y="28" width="140" height="56" rx="10"/>
+              <text class="svg-t mid" x="430" y="52" text-anchor="middle">Color re-ID</text>
+              <text class="svg-t" x="430" y="68" text-anchor="middle">trained weights</text>
+              <line class="s-ink" stroke-width="2" x1="160" y1="56" x2="186" y2="56"/><path class="f-ink" d="M184 51 L192 56 L184 61 Z"/>
+              <line class="s-ink" stroke-width="2" x1="330" y1="56" x2="356" y2="56"/><path class="f-ink" d="M354 51 L362 56 L354 61 Z"/>
+              <circle class="an sc-pulse f-acc" cx="26" cy="56" r="5"/>
+              <!-- row 2: think -->
+              <text class="svg-t" x="20" y="110">THINK · decide, then drive smoothly</text>
+              <line class="s-ink" stroke-width="2" x1="430" y1="84" x2="430" y2="116"/><path class="f-ink" d="M425 114 L430 122 L435 114 Z"/>
+              <rect class="f-surf s-ink" stroke-width="2" x="290" y="122" width="210" height="56" rx="10"/>
+              <text class="svg-t mid" x="300" y="141">mode state machine</text>
+              <g class="svg-t" style="font-size:9px">
+                <rect class="f-tag" x="300" y="150" width="46" height="16" rx="8"/><rect class="an sc-m1 f-acc" x="300" y="150" width="46" height="16" rx="8"/><text class="svg-t ink" x="323" y="161.5" text-anchor="middle" style="font-size:9px">FOLLOW</text>
+                <rect class="f-tag" x="350" y="150" width="50" height="16" rx="8"/><rect class="an sc-m2 f-acc" x="350" y="150" width="50" height="16" rx="8"/><text class="svg-t ink" x="375" y="161.5" text-anchor="middle" style="font-size:9px">BLOCKED</text>
+                <rect class="f-tag" x="404" y="150" width="44" height="16" rx="8"/><rect class="an sc-m3 f-acc" x="404" y="150" width="44" height="16" rx="8"/><text class="svg-t ink" x="426" y="161.5" text-anchor="middle" style="font-size:9px">SEARCH</text>
+                <rect class="f-tag" x="452" y="150" width="42" height="16" rx="8"/><rect class="an sc-m4 f-acc" x="452" y="150" width="42" height="16" rx="8"/><text class="svg-t ink" x="473" y="161.5" text-anchor="middle" style="font-size:9px">RETURN</text>
+              </g>
+              <line class="s-ink" stroke-width="2" x1="290" y1="138" x2="266" y2="138"/><path class="f-ink" d="M268 133 L260 138 L268 143 Z"/>
+              <rect class="f-surf s-ink" stroke-width="2" x="20" y="122" width="240" height="56" rx="10"/>
+              <text class="svg-t mid" x="140" y="146" text-anchor="middle">damped-P distance + steering</text>
+              <text class="svg-t" x="140" y="162" text-anchor="middle">deadband · hysteresis · slew · kick</text>
+              <!-- row 3: move + learn -->
+              <text class="svg-t" x="20" y="204">MOVE · and learn from every stop</text>
+              <line class="s-ink" stroke-width="2" x1="140" y1="178" x2="140" y2="208"/><path class="f-ink" d="M135 206 L140 214 L145 206 Z"/>
+              <rect class="f-surf s-ink" stroke-width="2" x="20" y="214" width="240" height="56" rx="10"/>
+              <text class="svg-t mid" x="140" y="238" text-anchor="middle">ESP32 · TB9051FTG PWM</text>
+              <text class="svg-t" x="140" y="254" text-anchor="middle">encoders report what really moved</text>
+              <line class="s-ink" stroke-width="2" x1="260" y1="242" x2="286" y2="242"/><path class="f-ink" d="M284 237 L292 242 L284 247 Z"/>
+              <rect class="f-surf s-ink" stroke-width="2" x="290" y="214" width="210" height="56" rx="10"/>
+              <text class="svg-t mid" x="395" y="238" text-anchor="middle">inertia learner</text>
+              <text class="svg-t" x="395" y="254" text-anchor="middle">momentum learned online</text>
+              <path class="an sc-fb s-acc" stroke-width="2" stroke-dasharray="6 5" fill="none" d="M395 214 V190 H276 V166 H266"/>
+              <path class="f-acc" d="M268 161 L260 166 L268 171 Z"/>
+              <text class="svg-t acc" x="402" y="198">learned inertia → control</text>
+              <text class="svg-t" x="20" y="292">100% on-device · no remote, no phone, no cloud</text>
             </svg>
           </figure>
           <figure class="photo lead wide reveal">
@@ -707,7 +737,7 @@
         <ol class="timeline" style="list-style:none;margin:0">
           <li class="tl-item now reveal"><span class="tl-when">2026 – 2027</span><p class="tl-what"><a href="#genentech">Genentech senior capstone</a></p><p class="tl-where">Team iME8, UC Santa Barbara</p></li>
           <li class="tl-item reveal"><span class="tl-when">Jun – Sep 2026</span><p class="tl-what"><a href="#applied-materials">Applied Materials</a></p><p class="tl-where">Technical Project Management Intern, Santa Clara, CA</p></li>
-          <li class="tl-item reveal"><span class="tl-when">Apr – Jun 2026</span><p class="tl-what"><a href="#shopping-cart">Autonomous Shopping Cart</a></p><p class="tl-where">Junior capstone, UC Santa Barbara</p></li>
+          <li class="tl-item reveal"><span class="tl-when">Apr – Jun 2026</span><p class="tl-what"><a href="#shopping-cart">Autonomous Shopping Cart</a></p><p class="tl-where">Junior capstone, Team Zero, UC Santa Barbara</p></li>
           <li class="tl-item now reveal"><span class="tl-when">Jan 2026 – present</span><p class="tl-what"><a href="#begley-lab">Begley Lab, UCSB</a></p><p class="tl-where">Undergraduate Research Assistant</p></li>
           <li class="tl-item reveal"><span class="tl-when">Jun – Aug 2025</span><p class="tl-what"><a href="#northrop-grumman">Northrop Grumman</a></p><p class="tl-where">Mechanical Engineering Intern, Goleta, CA</p></li>
           <li class="tl-item reveal"><span class="tl-when">Sep 2024 – Jun 2026</span><p class="tl-what"><a href="#rocket">Gaucho Rocket Project</a></p><p class="tl-where">Vice President</p></li>
