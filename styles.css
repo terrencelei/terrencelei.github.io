@@ -361,8 +361,8 @@ section { scroll-margin-top: 70px; }
 @keyframes ng-l3 { 0%, 56% { opacity: .3; } 60%, 90% { opacity: 1; } 94%, 100% { opacity: .3; } }
 
 /* 06 cart software */
-.sc-pulse { animation: sc-pulse 3s linear infinite; }
-@keyframes sc-pulse { 0% { transform: translateX(0); opacity: 0; } 5% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateX(470px); opacity: 0; } }
+.sc-p { animation: sc-p 1s linear infinite; }
+@keyframes sc-p { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateX(24px); opacity: 0; } }
 .sc-m1, .sc-m2, .sc-m3, .sc-m4 { opacity: 0; animation: sc-mode 4s steps(1) infinite; }
 .sc-m2 { animation-delay: 1s; } .sc-m3 { animation-delay: 2s; } .sc-m4 { animation-delay: 3s; }
 @keyframes sc-mode { 0% { opacity: .9; } 25% { opacity: 0; } }

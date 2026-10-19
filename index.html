@@ -654,50 +654,49 @@
           <figure class="fig-card explainer reveal" style="margin:0">
             <svg viewBox="0 0 520 300" role="img" aria-labelledby="sc-t sc-d">
               <title id="sc-t">Shopping cart software explainer</title>
-              <desc id="sc-d">Three rows. See: the camera's neural processor runs YOLO11n, ByteTrack assigns IDs, and a trained color re-identification keeps the lock on the shopper; a pulse travels along the row. Think: a mode state machine (follow, blocked, search, return) feeds damped-proportional distance and steering laws. Move: the ESP32 drives the wheels, encoders report real motion, and an online inertia learner feeds learned momentum back into the control laws.</desc>
-              <!-- row 1: see -->
-              <text class="svg-t" x="20" y="18">SEE · all on the camera and the Pi</text>
-              <rect class="f-surf s-ink" stroke-width="2" x="20" y="28" width="140" height="56" rx="10"/>
-              <text class="svg-t mid" x="90" y="52" text-anchor="middle">IMX500 NPU</text>
-              <text class="svg-t" x="90" y="68" text-anchor="middle">YOLO11n · 30 fps</text>
-              <rect class="f-surf s-ink" stroke-width="2" x="190" y="28" width="140" height="56" rx="10"/>
-              <text class="svg-t mid" x="260" y="52" text-anchor="middle">ByteTrack</text>
-              <text class="svg-t" x="260" y="68" text-anchor="middle">IDs for everyone</text>
-              <rect class="f-surf s-ink" stroke-width="2" x="360" y="28" width="140" height="56" rx="10"/>
-              <text class="svg-t mid" x="430" y="52" text-anchor="middle">Color re-ID</text>
-              <text class="svg-t" x="430" y="68" text-anchor="middle">trained weights</text>
-              <line class="s-ink" stroke-width="2" x1="160" y1="56" x2="186" y2="56"/><path class="f-ink" d="M184 51 L192 56 L184 61 Z"/>
-              <line class="s-ink" stroke-width="2" x1="330" y1="56" x2="356" y2="56"/><path class="f-ink" d="M354 51 L362 56 L354 61 Z"/>
-              <circle class="an sc-pulse f-acc" cx="26" cy="56" r="5"/>
-              <!-- row 2: think -->
-              <text class="svg-t" x="20" y="110">THINK · decide, then drive smoothly</text>
-              <line class="s-ink" stroke-width="2" x1="430" y1="84" x2="430" y2="116"/><path class="f-ink" d="M425 114 L430 122 L435 114 Z"/>
-              <rect class="f-surf s-ink" stroke-width="2" x="290" y="122" width="210" height="56" rx="10"/>
-              <text class="svg-t mid" x="300" y="141">mode state machine</text>
-              <g class="svg-t" style="font-size:9px">
-                <rect class="f-tag" x="300" y="150" width="46" height="16" rx="8"/><rect class="an sc-m1 f-acc" x="300" y="150" width="46" height="16" rx="8"/><text class="svg-t ink" x="323" y="161.5" text-anchor="middle" style="font-size:9px">FOLLOW</text>
-                <rect class="f-tag" x="350" y="150" width="50" height="16" rx="8"/><rect class="an sc-m2 f-acc" x="350" y="150" width="50" height="16" rx="8"/><text class="svg-t ink" x="375" y="161.5" text-anchor="middle" style="font-size:9px">BLOCKED</text>
-                <rect class="f-tag" x="404" y="150" width="44" height="16" rx="8"/><rect class="an sc-m3 f-acc" x="404" y="150" width="44" height="16" rx="8"/><text class="svg-t ink" x="426" y="161.5" text-anchor="middle" style="font-size:9px">SEARCH</text>
-                <rect class="f-tag" x="452" y="150" width="42" height="16" rx="8"/><rect class="an sc-m4 f-acc" x="452" y="150" width="42" height="16" rx="8"/><text class="svg-t ink" x="473" y="161.5" text-anchor="middle" style="font-size:9px">RETURN</text>
+              <desc id="sc-d">Three boxes in a row: See (AI camera running YOLO11n on its neural processor, ByteTrack IDs, a color re-identification lock), Think (Raspberry Pi 5 picks a mode and runs damped-proportional speed and steering), Move (ESP32 drives the wheels, encoders count real motion). Pulses travel between the boxes. A dashed loop from Move back to Think shows encoder feedback and online momentum learning. Below, four mode chips (follow, blocked, search, return) light in turn.</desc>
+              <!-- column labels -->
+              <text class="svg-t acc" x="90" y="40" text-anchor="middle" style="font-weight:700;letter-spacing:.12em">SEE</text>
+              <text class="svg-t acc" x="260" y="40" text-anchor="middle" style="font-weight:700;letter-spacing:.12em">THINK</text>
+              <text class="svg-t acc" x="430" y="40" text-anchor="middle" style="font-weight:700;letter-spacing:.12em">MOVE</text>
+              <!-- SEE -->
+              <rect class="f-surf s-ink" stroke-width="2" x="20" y="52" width="140" height="112" rx="12"/>
+              <text class="svg-t mid" x="90" y="78" text-anchor="middle">AI camera</text>
+              <text class="svg-t" x="90" y="100" text-anchor="middle">YOLO11n on the NPU</text>
+              <text class="svg-t" x="90" y="118" text-anchor="middle">ByteTrack IDs</text>
+              <text class="svg-t" x="90" y="136" text-anchor="middle">color re-ID lock</text>
+              <!-- THINK -->
+              <rect class="f-surf s-ink" stroke-width="2" x="190" y="52" width="140" height="112" rx="12"/>
+              <text class="svg-t mid" x="260" y="78" text-anchor="middle">Raspberry Pi 5</text>
+              <text class="svg-t" x="260" y="100" text-anchor="middle">picks a mode</text>
+              <text class="svg-t" x="260" y="118" text-anchor="middle">damped-P control</text>
+              <text class="svg-t" x="260" y="136" text-anchor="middle">speed + steering</text>
+              <!-- MOVE -->
+              <rect class="f-surf s-ink" stroke-width="2" x="360" y="52" width="140" height="112" rx="12"/>
+              <text class="svg-t mid" x="430" y="78" text-anchor="middle">ESP32 + motors</text>
+              <text class="svg-t" x="430" y="100" text-anchor="middle">PWM to the wheels</text>
+              <text class="svg-t" x="430" y="118" text-anchor="middle">encoders count</text>
+              <text class="svg-t" x="430" y="136" text-anchor="middle">kick-start from rest</text>
+              <!-- forward arrows with pulses -->
+              <line class="s-ink" stroke-width="2" x1="160" y1="108" x2="184" y2="108"/><path class="f-ink" d="M182 103 L190 108 L182 113 Z"/>
+              <line class="s-ink" stroke-width="2" x1="330" y1="108" x2="354" y2="108"/><path class="f-ink" d="M352 103 L360 108 L352 113 Z"/>
+              <circle class="an sc-p f-acc" cx="162" cy="108" r="4"/>
+              <circle class="an sc-p f-acc" cx="332" cy="108" r="4" style="animation-delay:.5s"/>
+              <!-- feedback loop -->
+              <path class="an sc-fb s-acc" stroke-width="2" stroke-dasharray="6 5" fill="none" d="M430 164 V192 H260 V172"/>
+              <path class="f-acc" d="M255 176 L260 166 L265 176 Z"/>
+              <text class="svg-t" x="345" y="210" text-anchor="middle">encoders feed back what really moved</text>
+              <text class="svg-t acc" x="345" y="224" text-anchor="middle">the cart learns its own momentum online</text>
+              <!-- mode chips -->
+              <text class="svg-t" x="20" y="262">mode</text>
+              <g style="font-size:10px">
+                <rect class="f-tag" x="66" y="248" width="80" height="22" rx="11"/><rect class="an sc-m1 f-acc" x="66" y="248" width="80" height="22" rx="11"/><text class="svg-t ink" x="106" y="262.5" text-anchor="middle" style="font-size:10px">FOLLOW</text>
+                <rect class="f-tag" x="156" y="248" width="80" height="22" rx="11"/><rect class="an sc-m2 f-acc" x="156" y="248" width="80" height="22" rx="11"/><text class="svg-t ink" x="196" y="262.5" text-anchor="middle" style="font-size:10px">BLOCKED</text>
+                <rect class="f-tag" x="246" y="248" width="80" height="22" rx="11"/><rect class="an sc-m3 f-acc" x="246" y="248" width="80" height="22" rx="11"/><text class="svg-t ink" x="286" y="262.5" text-anchor="middle" style="font-size:10px">SEARCH</text>
+                <rect class="f-tag" x="336" y="248" width="80" height="22" rx="11"/><rect class="an sc-m4 f-acc" x="336" y="248" width="80" height="22" rx="11"/><text class="svg-t ink" x="376" y="262.5" text-anchor="middle" style="font-size:10px">RETURN</text>
               </g>
-              <line class="s-ink" stroke-width="2" x1="290" y1="138" x2="266" y2="138"/><path class="f-ink" d="M268 133 L260 138 L268 143 Z"/>
-              <rect class="f-surf s-ink" stroke-width="2" x="20" y="122" width="240" height="56" rx="10"/>
-              <text class="svg-t mid" x="140" y="146" text-anchor="middle">damped-P distance + steering</text>
-              <text class="svg-t" x="140" y="162" text-anchor="middle">deadband · hysteresis · slew · kick</text>
-              <!-- row 3: move + learn -->
-              <text class="svg-t" x="20" y="204">MOVE · and learn from every stop</text>
-              <line class="s-ink" stroke-width="2" x1="140" y1="178" x2="140" y2="208"/><path class="f-ink" d="M135 206 L140 214 L145 206 Z"/>
-              <rect class="f-surf s-ink" stroke-width="2" x="20" y="214" width="240" height="56" rx="10"/>
-              <text class="svg-t mid" x="140" y="238" text-anchor="middle">ESP32 · TB9051FTG PWM</text>
-              <text class="svg-t" x="140" y="254" text-anchor="middle">encoders report what really moved</text>
-              <line class="s-ink" stroke-width="2" x1="260" y1="242" x2="286" y2="242"/><path class="f-ink" d="M284 237 L292 242 L284 247 Z"/>
-              <rect class="f-surf s-ink" stroke-width="2" x="290" y="214" width="210" height="56" rx="10"/>
-              <text class="svg-t mid" x="395" y="238" text-anchor="middle">inertia learner</text>
-              <text class="svg-t" x="395" y="254" text-anchor="middle">momentum learned online</text>
-              <path class="an sc-fb s-acc" stroke-width="2" stroke-dasharray="6 5" fill="none" d="M395 214 V190 H276 V166 H266"/>
-              <path class="f-acc" d="M268 161 L260 166 L268 171 Z"/>
-              <text class="svg-t acc" x="402" y="198">learned inertia → control</text>
-              <text class="svg-t" x="20" y="292">100% on-device · no remote, no phone, no cloud</text>
+              <text class="svg-t" x="500" y="262" text-anchor="end">30× / s</text>
+              <text class="svg-t" x="260" y="292" text-anchor="middle">everything runs on the cart · no phone, no cloud</text>
             </svg>
           </figure>
           <div class="ch-thumbs four reveal">
