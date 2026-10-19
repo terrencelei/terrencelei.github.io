@@ -246,6 +246,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- section heads ---------- */
 section { scroll-margin-top: 70px; }
 .sec { padding-block: 104px; }
+#interests.sec { padding-block: 64px; }
 .sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-bottom: 56px; }
 .sec-title { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: .92; letter-spacing: -.028em; }
 .sec-intro { color: var(--muted); font-size: 1.08rem; max-width: 34em; margin: 0; }
@@ -482,7 +483,7 @@ section { scroll-margin-top: 70px; }
 
 /* ---------- interests ---------- */
 .int-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.int-card { border-radius: var(--radius); padding: 26px 22px 30px; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; border: 1.5px solid var(--text); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.int-card { border-radius: var(--radius); padding: 20px 20px 22px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; border: 1.5px solid var(--text); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
 .int-card:nth-child(1) { background: var(--accent); color: var(--on-accent); transform: rotate(-1.5deg); }
 .int-card:nth-child(2) { background: var(--surface); }
 .int-card:nth-child(3) { background: var(--secondary); color: #fff; transform: rotate(1.2deg); }
@@ -495,8 +496,8 @@ section { scroll-margin-top: 70px; }
 .int-card p { margin: 0; font-size: .95rem; opacity: .85; }
 
 /* ---------- contact ---------- */
-.contact { padding: 110px 0 40px; background: var(--accent); color: var(--on-accent); border-top: 1.5px solid var(--text); }
-.contact-title { font-size: clamp(3rem, 9vw, 8rem); line-height: .88; letter-spacing: -.03em; margin-bottom: 26px; }
+.contact { padding: 64px 0 28px; background: var(--accent); color: var(--on-accent); border-top: 1.5px solid var(--text); }
+.contact-title { font-size: clamp(2.6rem, 6.5vw, 5.5rem); line-height: .9; letter-spacing: -.03em; margin-bottom: 18px; }
 .contact-mail { display: inline-block; font-family: var(--f-display); font-weight: 700; font-size: clamp(1.3rem, 3.6vw, 2.6rem); letter-spacing: -.02em; text-decoration: none; border-bottom: 3px solid currentColor; line-height: 1.15; overflow-wrap: anywhere; }
 .contact-mail:hover { border-bottom-style: dashed; }
 .contact p.lead { font-size: 1.15rem; max-width: 34em; margin: 22px 0 30px; font-weight: 500; }
@@ -586,6 +587,7 @@ section { scroll-margin-top: 70px; }
 .ch-title-logo { margin: 0; line-height: 0; }
 .ch-title-logo img { display: block; height: 1em; width: auto; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: .18em .34em; box-sizing: content-box; }
 .ch-title-logo.badge img { height: 1.35em; background: transparent; border: 0; padding: 0; border-radius: 50%; }
+.ch-title-logo.lockup img { height: 2.1em; background: transparent; border: 0; padding: 0; border-radius: 14px; }
 .ch-logo.bare { background: transparent; border: 0; padding: 0; height: 64px; }
 .ch-logo.bare img { max-width: 260px; }
 .photo.natural img, .photo.natural video { aspect-ratio: 5 / 4; }
