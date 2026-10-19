@@ -185,7 +185,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .menu-btn { display: none; }
 
 /* ---------- hero ---------- */
-.hero { padding: 72px 0 56px; position: relative; }
+.hero { padding: 44px 0 36px; position: relative; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 48px; align-items: end; }
 .hero-hello { font-family: var(--f-mono); font-size: .95rem; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 .hero-hello .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
@@ -206,7 +206,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--tag); color: var(--text); font-size: .88rem; font-weight: 500; }
 .chip svg { width: 14px; height: 14px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-.hero-art { position: relative; justify-self: end; width: 100%; max-width: 340px; }
+.hero-art { position: relative; justify-self: end; width: 100%; max-width: 280px; }
 .arch {
   aspect-ratio: 4 / 5; width: 100%;
   border-radius: 999px 999px var(--radius) var(--radius);
@@ -584,10 +584,11 @@ section { scroll-margin-top: 70px; }
 /* single project photo: smaller, offset like a pinned print */
 /* logo as the chapter title */
 .ch-title-logo { margin: 0; line-height: 0; }
-.ch-title-logo img { display: block; height: 56px; width: auto; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 18px; box-sizing: content-box; }
-.ch-title-logo.badge img { height: 110px; background: transparent; border: 0; padding: 0; border-radius: 50%; }
+.ch-title-logo img { display: block; height: 1em; width: auto; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: .18em .34em; box-sizing: content-box; }
+.ch-title-logo.badge img { height: 1.35em; background: transparent; border: 0; padding: 0; border-radius: 50%; }
 .ch-logo.bare { background: transparent; border: 0; padding: 0; height: 64px; }
 .ch-logo.bare img { max-width: 260px; }
+.photo.natural img, .photo.natural video { aspect-ratio: 5 / 4; }
 /* small thumbnail rows under the explainer (slide-style) */
 .ch-thumbs { display: grid; gap: 12px; }
 .ch-thumbs.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -596,10 +597,15 @@ section { scroll-margin-top: 70px; }
 @media (max-width: 640px) { .ch-thumbs.four, .ch-thumbs.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .ch-thumbs .photo img, .ch-thumbs .photo video { aspect-ratio: 4 / 3; }
 .ch-thumbs .photo figcaption { font-size: .66rem; padding: 2px 7px; left: 8px; bottom: 8px; }
-@media (max-width: 640px) { .ch-title-logo img { height: 44px; padding: 8px 12px; } .ch-title-logo.badge img { height: 80px; } .ch-logo.bare { height: 48px; } }
+.ch-col > .ch-thumbs.fill { min-height: 150px; }
+.ch-thumbs.fill .photo { position: relative; min-height: 150px; }
+.ch-thumbs.fill .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; aspect-ratio: auto; }
+.ch-thumbs.fill .photo.contain img { object-fit: contain; background: #fff; }
+@media (max-width: 860px) { .ch-thumbs.fill .photo img { position: static; height: auto; aspect-ratio: 4 / 3; } .ch-thumbs.fill .photo { min-height: 0; } }
+
 /* chapter logo chip in the header row */
 .ch-top { align-items: center; }
-.ch-logo { margin-left: auto; align-self: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; height: 52px; display: flex; align-items: center; justify-content: center; }
+.ch-logo { margin-left: auto; align-self: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 14px; height: 56px; display: flex; align-items: center; justify-content: center; }
 .ch-logo img { height: 100%; width: auto; max-width: 180px; object-fit: contain; display: block; }
 .ch-logo.placeholder { background: transparent; border: 1.5px dashed var(--muted); color: var(--muted); font-family: var(--f-mono); font-size: .78rem; line-height: 1.1; text-align: center; }
 .ch-logo.placeholder small { display: block; font-size: .62rem; opacity: .8; margin-top: 2px; }
