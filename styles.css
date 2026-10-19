@@ -374,7 +374,7 @@ section { scroll-margin-top: 70px; }
 .gdt-pop { animation: pop 3s ease infinite; }
 @keyframes pop { 0%, 30% { transform: scale(.85); opacity: .3; } 45%, 92% { transform: scale(1); opacity: 1; } 100% { transform: scale(.85); opacity: .3; } }
 
-/* 04 Hawkes lab */
+/* 04 Begley Lab */
 .arm-a { animation: arm-a 3s ease-in-out infinite; }
 @keyframes arm-a { 0%, 10% { transform: rotate(-28deg); } 40%, 60% { transform: rotate(26deg); } 90%, 100% { transform: rotate(-28deg); } }
 .arm-b { animation: arm-b 3s ease-in-out infinite; }

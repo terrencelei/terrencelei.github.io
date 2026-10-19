@@ -13,7 +13,7 @@ Every image slot on the site, what to shoot, and where the file goes. Placeholde
 | `assets/placeholders/rocket-design-review.svg` | 01 Gaucho Rocket Project | You presenting at a design review, or a CAD / FEA screenshot of a part you designed. | 4:3 |
 | `assets/placeholders/applied-materials.svg` | 02 Applied Materials | Non-proprietary only: you at the Santa Clara campus or an intern event. | 4:3 |
 | `assets/placeholders/northrop-grumman.svg` | 03 Northrop Grumman | Non-proprietary only: an approved intern photo or the Goleta site exterior. | 4:3 |
-| `assets/placeholders/hawkes-lab.svg` | 04 Hawkes Lab, UCSB | Robot arm and camera rig at the workbench (with lab permission), or you at the bench. | 4:3 |
+| `assets/placeholders/begley-lab.svg` | 04 Begley Lab, UCSB | Robot arm and camera rig at the workbench (with lab permission), or you at the bench. | 4:3 |
 | `assets/placeholders/genentech-capstone.svg` | 05 Genentech capstone | xArm 6 in simulation (RViz / MoveIt screenshot) or a team photo. | 4:3 |
 
 Already real (copied from the Autonomous Shopping Cart site, no action needed):
@@ -29,5 +29,5 @@ Already real (copied from the Autonomous Shopping Cart site, no action needed):
 - **Genentech capstone:** the project is under the sponsor's invention-assignment terms. No sponsor
   data, results, internal hardware or documents; simulation screenshots and team photos only, and
   check with the team/sponsor before posting.
-- **Hawkes Lab:** ask the lab before posting photos of the rig.
+- **Begley Lab:** ask the lab before posting photos of the rig.
 - Get permission from anyone else who appears in a photo.
