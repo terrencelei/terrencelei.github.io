@@ -427,6 +427,8 @@ section { scroll-margin-top: 70px; }
 .lab-on { opacity: 0; animation: lab-on 10s ease-in-out infinite; }
 @keyframes lab-on { 0%, 16% { opacity: 1; } 24%, 100% { opacity: 0; } }
 .lab-off { animation: lab-off 10s ease-in-out infinite; }
+.tog-knob { transform: translateX(16px); animation: tog 10s ease-in-out infinite; }
+@keyframes tog { 0%, 16% { transform: translateX(0); } 24%, 100% { transform: translateX(16px); } }
 @keyframes lab-off { 0%, 18% { opacity: 0; } 26%, 100% { opacity: 1; } }
 .loop-dash { animation: sc-fb 1.2s linear infinite; }
 @keyframes scan { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
