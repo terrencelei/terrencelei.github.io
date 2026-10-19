@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="styles.css?v=202610182004">
+<link rel="stylesheet" href="styles.css?v=202610182007">
 
 <script>
   /* set theme before first paint; ?theme=dark|light overrides for testing */
@@ -229,12 +229,23 @@
             </svg>
             <figcaption class="fig-cap"><span><b>Force flow, not a blueprint.</b> Torque in, linear lift out, then a sideways press onto the seat. The actuator body stays put inside the tool envelope while the gate rises and seals; the gear-and-linkage train is drawn only in outline.</span><span class="live">illustration</span></figcaption>
           </figure>
-            <div class="fact-card fill reveal">
+            <div class="fact-card fill media reveal">
+              <div class="fc-media">
+                <svg id="am-globe" viewBox="0 0 320 236" role="img" aria-label="A slowly rotating globe marking where Applied Materials tools run: Santa Clara, Hillsboro, Boise, Dresden, Hsinchu, Pyeongtaek, Icheon, Yokkaichi and more" preserveAspectRatio="xMidYMid meet">
+                  <defs><clipPath id="am-globe-clip"><circle cx="150" cy="118" r="92"/></clipPath></defs>
+                  <circle cx="150" cy="118" r="92" class="f-tag s-ink" stroke-width="1.5"/>
+                  <g id="am-grat" clip-path="url(#am-globe-clip)" class="s-mut" stroke-width=".8" fill="none" opacity=".55"></g>
+                  <g id="am-pts"></g>
+                  <text class="svg-t" x="150" y="232" text-anchor="middle" style="font-size:9px">where the tools run · 1000+ worldwide</text>
+                </svg>
+              </div>
+              <div class="fc-stats">
               <div><div class="fv">1,000+</div><div class="fl">tools on the upgrade path</div></div>
               <div><div class="fv">2 motions</div><div class="fl">from one motor</div></div>
               <div><div class="fv">Patent</div><div class="fl">pending</div></div>
               <div><div class="fv">Lock + release</div><div class="fl">manual, for power-loss redundancy</div></div>
               <div><div class="fv">Sealed</div><div class="fl">O-rings rated for chamber pressure, heat, chemistry</div></div>
+              </div>
             </div>
         </div>
       </div>
@@ -559,7 +570,7 @@
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
         <div class="ch-copy reveal">
-          <p class="ch-hook">HALO: a hopper that takes off, hovers, and lands on its own legs.</p>
+          <p class="ch-hook">It's Just Rocket Science.</p>
           <p class="ch-prose">HALO is the team's vertical take-off, vertical landing vehicle: a ~3 kN nitrous oxide / isopropanol engine on a gimbal, four aluminum rails carrying the tanks and avionics, cold-gas roll thrusters and splayed landing legs, built for a stable hover and a ~100 m hop. As vice president I owned integration: structures, propulsion, actuators, sensors, custom PCBs, power electronics and controls had to fit, survive and work together.</p>
           <ul class="bullets">
             <li>Ran FEA and structural optimization to trade mass against stiffness, strength and factor of safety.</li>
@@ -899,6 +910,6 @@
   </div>
 </footer>
 
-<script src="main.js?v=202610182004"></script>
+<script src="main.js?v=202610182007"></script>
 </body>
 </html>

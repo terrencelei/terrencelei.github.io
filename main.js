@@ -235,3 +235,56 @@
   if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
   else start();
 })();
+
+/* ---------- Applied Materials: rotating globe of fab sites ---------- */
+(function () {
+  var svg = document.getElementById('am-globe'); if (!svg) return;
+  var NS = 'http://www.w3.org/2000/svg', CX = 150, CY = 118, R = 92, TILT = 18 * Math.PI / 180;
+  var sites = [
+    { n: 'Santa Clara · HQ', lat: 37.4, lon: -121.9, home: true, label: true },
+    { n: 'Hillsboro · Intel', lat: 45.5, lon: -122.9, label: true }, { n: 'Boise', lat: 43.6, lon: -116.2 }, { n: 'Malta, NY', lat: 42.9, lon: -73.8 },
+    { n: 'Dresden', lat: 51.0, lon: 13.7, label: true }, { n: 'Hsinchu · TSMC', lat: 24.8, lon: 121.0, label: true },
+    { n: 'Korea · Samsung, SK hynix', lat: 37.2, lon: 127.2, label: true },
+    { n: 'Yokkaichi · Kioxia', lat: 35.0, lon: 136.6, label: true }, { n: 'Shanghai', lat: 31.2, lon: 121.5 }, { n: 'Singapore', lat: 1.35, lon: 103.8 }, { n: 'Chandler', lat: 33.3, lon: -111.8 }
+  ];
+  var grat = document.getElementById('am-grat'), pts = document.getElementById('am-pts');
+  function proj(lat, lon, phi) {
+    var la = lat * Math.PI / 180, lo = lon * Math.PI / 180 - phi;
+    var x = Math.cos(la) * Math.sin(lo), y = Math.sin(la), z = Math.cos(la) * Math.cos(lo);
+    var y2 = y * Math.cos(TILT) - z * Math.sin(TILT), z2 = y * Math.sin(TILT) + z * Math.cos(TILT);
+    return { x: CX + R * x, y: CY - R * y2, vis: z2 };
+  }
+  var meridians = [], parallels = [];
+  for (var i = 0; i < 12; i++) { var pth = document.createElementNS(NS, 'path'); grat.appendChild(pth); meridians.push(pth); }
+  for (var j = -60; j <= 60; j += 30) { var pp = document.createElementNS(NS, 'path'); grat.appendChild(pp); parallels.push({ el: pp, lat: j }); }
+  var dots = sites.map(function (s) {
+    var g = document.createElementNS(NS, 'g'); var c = document.createElementNS(NS, 'circle'); var t = document.createElementNS(NS, 'text');
+    c.setAttribute('r', s.home ? 4 : 3); c.setAttribute('class', s.home ? 'f-sec' : 'f-acc');
+    t.setAttribute('class', 'svg-t ink'); t.setAttribute('style', 'font-size:8.5px;paint-order:stroke;stroke:var(--g-surf);stroke-width:3px;stroke-linejoin:round'); t.textContent = s.label ? s.n : '';
+    g.appendChild(c); g.appendChild(t); pts.appendChild(g); return { g: g, c: c, t: t, s: s };
+  });
+  function linePath(points) {
+    var d = '', pen = false;
+    points.forEach(function (p) { if (p.vis > 0) { d += (pen ? 'L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); pen = true; } else pen = false; });
+    return d;
+  }
+  function draw(phi) {
+    meridians.forEach(function (el, k) { var lon = k * 30, arr = []; for (var la = -90; la <= 90; la += 6) arr.push(proj(la, lon, phi)); el.setAttribute('d', linePath(arr)); });
+    parallels.forEach(function (o) { var arr = []; for (var lo = -180; lo <= 180; lo += 6) arr.push(proj(o.lat, lo, phi)); o.el.setAttribute('d', linePath(arr)); });
+    dots.forEach(function (d) {
+      var p = proj(d.s.lat, d.s.lon, phi), on = p.vis > 0.05;
+      d.g.setAttribute('opacity', on ? Math.min(1, p.vis * 2.5) : 0);
+      d.c.setAttribute('cx', p.x); d.c.setAttribute('cy', p.y);
+      var right = p.x < CX; d.t.setAttribute('x', p.x + (right ? 6 : -6)); d.t.setAttribute('y', p.y + (d.s.home ? 11 : 3)); d.t.setAttribute('text-anchor', right ? 'start' : 'end');
+    });
+  }
+  var reduced = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || document.documentElement.classList.contains('static');
+  draw(2.1);
+  if (reduced) return;
+  var running = false, raf = 0;
+  function tick(now) { if (!running) return; raf = requestAnimationFrame(tick); draw(2.1 + now / 1000 * 2 * Math.PI / 28); }
+  function start() { if (running) return; running = true; raf = requestAnimationFrame(tick); }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
+  else start();
+})();
