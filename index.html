@@ -98,7 +98,6 @@
       <div class="arch">
         <img src="assets/headshot.jpg" width="800" height="1000" alt="Terrence Lei, headshot in a maroon quarter-zip against a navy background">
       </div>
-      <span class="sticker hero-sticker" aria-hidden="true">Hi, I'm Terrence<small>UCSB ME</small></span>
     </div>
   </div>
 </section>
@@ -131,10 +130,9 @@
         <span class="ch-num" aria-hidden="true">01</span>
         <div>
           <p class="ch-kind">Student rocketry team · HALO, a VTVL hopper</p>
-          <h3 class="ch-title" id="ch1-title">Gaucho Rocket Project</h3>
+          <h3 class="ch-title ch-title-logo badge" id="ch1-title"><img src="assets/logos/gaucho-rocket.png" alt="Gaucho Rocket Project"></h3>
           <p class="ch-role"><b>Vice President</b>, Sep 2024 – Jun 2026, UC Santa Barbara</p>
         </div>
-        <div class="ch-logo placeholder" title="Logo to add: Gaucho Rocket Project"><span>Gaucho Rocket Project<small>logo to add</small></span></div>
       </div>
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
@@ -147,7 +145,11 @@
             <li>Organized and led design reviews with faculty and industry sponsors.</li>
           </ul>
         </div>
-            <figure class="photo fill contain reveal"><img src="assets/halo-render.jpg" width="1000" height="1250" loading="lazy" alt="CAD render of HALO: a tall vehicle on four aluminum rails with an avionics deck on top, a dark pressurant tank, two stacked propellant tanks, a baseplate with a gimbaled engine, and four splayed landing legs on footpads"><figcaption>HALO, full-vehicle CAD</figcaption></figure>
+          <div class="fact-card fill reveal">
+              <div><div class="fv">~3 kN</div><div class="fl">N2O / IPA engine</div></div>
+              <div><div class="fv">200 kg</div><div class="fl">vehicle on four rails</div></div>
+              <div><div class="fv">~100 m</div><div class="fl">hop target</div></div>
+            </div>
         </div>
         <div class="ch-col ch-media-col">
           <figure class="fig-card explainer reveal" style="margin:0">
@@ -161,14 +163,12 @@
                   <stop offset="1" style="stop-color:var(--g-sec)"/>
                 </radialGradient>
               </defs>
-
               <!-- rails: the fixed frame everything mounts to -->
               <line class="s-ink" stroke-width="4" x1="104" y1="44" x2="104" y2="232"/>
               <line class="s-ink" stroke-width="4" x1="176" y1="44" x2="176" y2="232"/>
               <text class="svg-t" x="40" y="140" text-anchor="middle">four</text>
               <text class="svg-t" x="40" y="154" text-anchor="middle">rails</text>
               <line class="s-mut" stroke-width="1" x1="58" y1="146" x2="98" y2="146"/>
-
               <!-- stack, top to bottom; each part slides in from --dy -->
               <g class="an rk-part" style="--dx:0;--dy:-30px">
                 <rect class="f-ink" x="98" y="36" width="84" height="10" rx="3"/>
@@ -199,17 +199,15 @@
                 <g class="f-ink"><ellipse cx="46" cy="300" rx="10" ry="4"/><ellipse cx="234" cy="300" rx="10" ry="4"/><ellipse cx="88" cy="306" rx="10" ry="4"/><ellipse cx="192" cy="306" rx="10" ry="4"/></g>
                 <text class="svg-t ink rk-lbl an" x="140" y="319" text-anchor="middle">landing legs</text>
               </g>
-
               <!-- baseplate FEA -->
               <text class="svg-t" x="310" y="40">baseplate FEA (6061-T6)</text>
               <ellipse cx="398" cy="96" rx="82" ry="32" style="fill:url(#fea-g)" class="s-ink" stroke-width="2"/>
               <ellipse class="f-surf s-ink" stroke-width="1.5" cx="398" cy="96" rx="18" ry="7"/>
               <circle class="an fea-hot f-acc" cx="414" cy="94" r="9" opacity=".85"/>
               <g class="f-surf"><circle cx="340" cy="90" r="3"/><circle cx="456" cy="90" r="3"/><circle cx="362" cy="116" r="3"/><circle cx="434" cy="116" r="3"/></g>
-              <path class="s-ink" stroke-width="1.5" d="M412 92 L398 72"/>
-              <text class="svg-t ink" x="310" y="66">peak at cutout</text>
+              <path class="s-ink" stroke-width="1.5" d="M412 92 L404 60"/>
+              <text class="svg-t ink" x="310" y="56">peak at cutout</text>
               <text class="svg-t ink" x="310" y="150">~67 MPa peak, FoS ≈ 4</text>
-
               <!-- mass vs factor of safety gauge -->
               <text class="svg-t" x="400" y="196" text-anchor="middle">mass vs. factor of safety</text>
               <path class="s-line" stroke-width="14" d="M336 290 A64 64 0 0 1 368 234.6"/>
@@ -225,16 +223,12 @@
             </svg>
             <figcaption class="fig-cap"><span><b>Stack, integrate, check.</b> Deck, tanks, baseplate, engine and legs mount to four rails; the baseplate FEA peaks at the center cutout, and mass is traded against factor of safety.</span><span class="live">illustration</span></figcaption>
           </figure>
-            <div class="fact-card fill reveal">
-              <div><div class="fv">~3 kN</div><div class="fl">N2O / IPA engine</div></div>
-              <div><div class="fv">200 kg</div><div class="fl">vehicle on four rails</div></div>
-              <div><div class="fv">~100 m</div><div class="fl">hop target</div></div>
-            </div>
+          <div class="ch-thumbs three reveal">
+            <figure class="photo contain"><img src="assets/halo-render.jpg" width="1000" height="1250" loading="lazy" alt="CAD render of HALO: a tall vehicle on four aluminum rails with an avionics deck on top, a dark pressurant tank, two stacked propellant tanks, a baseplate with a gimbaled engine, and four splayed landing legs on footpads"><figcaption>HALO, full-vehicle CAD</figcaption></figure>
+            <figure class="photo"><img src="assets/halo-tvc.jpg" width="1200" height="900" loading="lazy" alt="Render of the thrust vector control gimbal with two linear actuators under the engine"><figcaption>TVC gimbal + actuators</figcaption></figure>
+            <figure class="photo"><img src="assets/halo-leg-fea.jpg" width="1200" height="900" loading="lazy" alt="Ansys FEA stress plot of a landing-leg footpad fixture"><figcaption>Landing-leg FEA</figcaption></figure>
+          </div>
         </div>
-      </div>
-      <div class="ch-strip cols-2">
-        <figure class="photo reveal"><img src="assets/halo-tvc.jpg" width="1200" height="900" loading="lazy" alt="Render of the thrust vector control gimbal with two linear actuators under the engine"><figcaption>TVC gimbal + actuators</figcaption></figure>
-        <figure class="photo reveal"><img src="assets/halo-leg-fea.jpg" width="1200" height="900" loading="lazy" alt="Ansys FEA stress plot of a landing-leg footpad fixture"><figcaption>Landing-leg FEA</figcaption></figure>
       </div>
     </div>
   </article>
@@ -246,10 +240,9 @@
         <span class="ch-num" aria-hidden="true">02</span>
         <div>
           <p class="ch-kind">Internship</p>
-          <h3 class="ch-title" id="ch2-title">Applied Materials</h3>
+          <h3 class="ch-title ch-title-logo" id="ch2-title"><img src="assets/logos/applied-materials.svg" alt="Applied Materials"></h3>
           <p class="ch-role"><b>Technical Project Management Intern</b>, Jun – Sep 2026, Santa Clara, CA</p>
         </div>
-        <div class="ch-logo"><img src="assets/logos/applied-materials.svg" alt="Applied Materials logo" loading="lazy"></div>
       </div>
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
@@ -355,10 +348,9 @@
         <span class="ch-num" aria-hidden="true">03</span>
         <div>
           <p class="ch-kind">Internship</p>
-          <h3 class="ch-title" id="ch3-title">Northrop Grumman</h3>
+          <h3 class="ch-title ch-title-logo" id="ch3-title"><img src="assets/logos/northrop-grumman.svg" alt="Northrop Grumman"></h3>
           <p class="ch-role"><b>Mechanical Engineering Intern</b>, Jun – Aug 2025, Goleta, CA</p>
         </div>
-        <div class="ch-logo"><img src="assets/logos/northrop-grumman.svg" alt="Northrop Grumman logo" loading="lazy"></div>
       </div>
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
@@ -547,10 +539,9 @@
         <span class="ch-num" aria-hidden="true">05</span>
         <div>
           <p class="ch-kind">Senior capstone, in progress</p>
-          <h3 class="ch-title" id="ch5-title">Robotic powder dispensing for Genentech</h3>
+          <h3 class="ch-title ch-title-logo" id="ch5-title"><img src="assets/logos/genentech.svg" alt="Genentech"></h3>
           <p class="ch-role"><b>Team iME8</b>, 2026 – 2027, sponsored by Genentech</p>
         </div>
-        <div class="ch-logo"><img src="assets/logos/genentech.svg" alt="Genentech logo" loading="lazy"></div>
       </div>
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
@@ -640,7 +631,7 @@
           <h3 class="ch-title" id="ch6-title">Autonomous Shopping Cart</h3>
           <p class="ch-role"><b>Team Zero</b>, Apr – Jun 2026, UC Santa Barbara</p>
         </div>
-        <div class="ch-logo placeholder" title="Logo to add: Team Zero"><span>Team Zero<small>logo to add</small></span></div>
+        <div class="ch-logo bare"><img src="assets/logos/ucsb-coe.png" alt="UC Santa Barbara College of Engineering logo" loading="lazy"></div>
       </div>
       <div class="ch-body">
         <div class="ch-col ch-copy-col">
@@ -709,21 +700,21 @@
               <text class="svg-t" x="20" y="292">100% on-device · no remote, no phone, no cloud</text>
             </svg>
           </figure>
-          <figure class="photo fill reveal">
+          <div class="ch-thumbs four reveal">
+            <figure class="photo">
             <video class="autoplay-in-view" src="assets/follow.mp4" poster="assets/follow-poster.jpg" muted loop playsinline preload="metadata" width="854" height="480" aria-label="The cart following a shopper down a hallway"></video>
             <figcaption>It follows you · real footage</figcaption>
           </figure>
-        </div>
-      </div>
-      <div class="ch-strip cols-4">
-        <figure class="photo reveal"><img src="assets/cart-photo.jpg" width="1600" height="1200" loading="lazy" alt="The finished autonomous shopping cart"><figcaption>The cart</figcaption></figure>
-        <figure class="photo reveal"><img src="assets/cad.jpg" width="1200" height="920" loading="lazy" alt="CAD model of the cart's drive and electronics"><figcaption>CAD</figcaption></figure>
-        <figure class="photo reveal"><img src="assets/vision.jpg" width="1320" height="992" loading="lazy" alt="What the cart's camera sees, with the shopper detected"><figcaption>Vision</figcaption></figure>
-        <div class="fact-card reveal">
+            <figure class="photo"><img src="assets/cart-photo.jpg" width="1600" height="1200" loading="lazy" alt="The finished autonomous shopping cart"><figcaption>The cart</figcaption></figure>
+            <figure class="photo"><img src="assets/cad.jpg" width="1200" height="920" loading="lazy" alt="CAD model of the cart's drive and electronics"><figcaption>CAD</figcaption></figure>
+            <figure class="photo"><img src="assets/vision.jpg" width="1320" height="992" loading="lazy" alt="What the cart's camera sees, with the shopper detected"><figcaption>Vision</figcaption></figure>
+          </div>
+          <div class="fact-card fill reveal">
               <div><div class="fv">30 fps</div><div class="fl">perception + control loop</div></div>
               <div><div class="fv">100%</div><div class="fl">on-device, no cloud</div></div>
               <div><div class="fv">2.0 m</div><div class="fl">following distance</div></div>
             </div>
+        </div>
       </div>
     </div>
   </article>

@@ -582,6 +582,21 @@ section { scroll-margin-top: 70px; }
 }
 
 /* single project photo: smaller, offset like a pinned print */
+/* logo as the chapter title */
+.ch-title-logo { margin: 0; line-height: 0; }
+.ch-title-logo img { display: block; height: 56px; width: auto; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 18px; box-sizing: content-box; }
+.ch-title-logo.badge img { height: 110px; background: transparent; border: 0; padding: 0; border-radius: 50%; }
+.ch-logo.bare { background: transparent; border: 0; padding: 0; height: 64px; }
+.ch-logo.bare img { max-width: 260px; }
+/* small thumbnail rows under the explainer (slide-style) */
+.ch-thumbs { display: grid; gap: 12px; }
+.ch-thumbs.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ch-thumbs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ch-thumbs.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 640px) { .ch-thumbs.four, .ch-thumbs.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ch-thumbs .photo img, .ch-thumbs .photo video { aspect-ratio: 4 / 3; }
+.ch-thumbs .photo figcaption { font-size: .66rem; padding: 2px 7px; left: 8px; bottom: 8px; }
+@media (max-width: 640px) { .ch-title-logo img { height: 44px; padding: 8px 12px; } .ch-title-logo.badge img { height: 80px; } .ch-logo.bare { height: 48px; } }
 /* chapter logo chip in the header row */
 .ch-top { align-items: center; }
 .ch-logo { margin-left: auto; align-self: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; height: 52px; display: flex; align-items: center; justify-content: center; }
@@ -589,6 +604,7 @@ section { scroll-margin-top: 70px; }
 .ch-logo.placeholder { background: transparent; border: 1.5px dashed var(--muted); color: var(--muted); font-family: var(--f-mono); font-size: .78rem; line-height: 1.1; text-align: center; }
 .ch-logo.placeholder small { display: block; font-size: .62rem; opacity: .8; margin-top: 2px; }
 .chapter.block .ch-logo { border-color: rgba(255,255,255,.25); }
+.chapter.block .ch-logo.bare { border: 0; }
 .chapter.block .ch-logo.placeholder { color: var(--block-muted); border-color: var(--block-muted); }
 @media (max-width: 640px) { .ch-logo { height: 42px; padding: 8px 12px; margin-left: 0; justify-self: start; } .ch-logo img { max-width: 130px; } }
 /* chapter body: two columns whose last items stretch so both end on the same line */
