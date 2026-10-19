@@ -190,8 +190,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-hello { font-family: var(--f-mono); font-size: .95rem; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 .hero-hello .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
 .hero-name {
-  font-size: clamp(56px, 11vw, 150px);
-  line-height: .86;
+  font-size: clamp(48px, 8.5vw, 112px);
+  line-height: .9;
   letter-spacing: -.03em;
   margin: 0 0 28px;
   font-variation-settings: "wdth" 85;
@@ -588,9 +588,11 @@ section { scroll-margin-top: 70px; }
 .ch-title-logo { margin: 0; line-height: 0; }
 .ch-title-logo img { display: block; height: 1em; width: auto; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: .18em .34em; box-sizing: content-box; }
 .ch-title-logo.badge img { height: 1.35em; background: transparent; border: 0; padding: 0; border-radius: 50%; }
-.ch-title-logo.lockup img { height: 2.9em; background: transparent; border: 0; padding: 0; border-radius: 16px; box-shadow: none; }
-.ch-logo.bare { background: transparent; border: 0; padding: 0; height: 64px; }
-.ch-logo.bare img { max-width: 260px; }
+.ch-title-logo.lockup img { height: 1.75em; background: transparent; border: 0; padding: 0; border-radius: 14px; box-shadow: none; }
+.ch-logo.coe { height: 132px; padding: 14px 22px; }
+.ch-logo.coe img { max-width: none; }
+.ch-logo.seal { height: 132px; width: 132px; padding: 10px; border-radius: 50%; }
+.ch-logo.seal img { max-width: none; }
 .photo.natural img, .photo.natural video { aspect-ratio: 5 / 4; }
 /* small thumbnail rows under the explainer (slide-style) */
 .ch-thumbs { display: grid; gap: 12px; }
@@ -616,7 +618,7 @@ section { scroll-margin-top: 70px; }
 .chapter.block .ch-logo { border-color: rgba(255,255,255,.25); }
 .chapter.block .ch-logo.bare { border: 0; }
 .chapter.block .ch-logo.placeholder { color: var(--block-muted); border-color: var(--block-muted); }
-@media (max-width: 640px) { .ch-logo { height: 64px; padding: 8px 12px; margin-left: 0; justify-self: start; } .ch-logo img { max-width: 200px; } }
+@media (max-width: 640px) { .ch-logo { height: 64px; padding: 8px 12px; margin-left: 0; justify-self: start; } .ch-logo img { max-width: 200px; } .ch-logo.coe { height: 90px; } .ch-logo.seal { height: 96px; width: 96px; } }
 /* chapter body: two columns whose last items stretch so both end on the same line */
 .ch-body { align-items: stretch; }
 .ch-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; position: relative; }
