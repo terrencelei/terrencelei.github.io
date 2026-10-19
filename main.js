@@ -274,6 +274,7 @@
     dots.forEach(function (d) {
       var p = proj(d.s.lat, d.s.lon, phi), on = p.vis > 0.05;
       d.g.setAttribute('opacity', on ? Math.min(1, p.vis * 2.5) : 0);
+      d.t.setAttribute('opacity', Math.max(0, Math.min(1, (p.vis - 0.45) * 4)));   // labels only while facing the viewer
       d.c.setAttribute('cx', p.x); d.c.setAttribute('cy', p.y);
       var right = p.x < CX; d.t.setAttribute('x', p.x + (right ? 6 : -6)); d.t.setAttribute('y', p.y + (d.s.dy !== undefined ? d.s.dy : (d.s.home ? 11 : 3))); d.t.setAttribute('text-anchor', right ? 'start' : 'end');
     });
