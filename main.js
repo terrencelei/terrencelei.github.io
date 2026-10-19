@@ -243,7 +243,7 @@
   var sites = [
     { n: 'Santa Clara · HQ', lat: 37.4, lon: -121.9, home: true, label: true },
     { n: 'Hillsboro · Intel', lat: 45.5, lon: -122.9, label: true }, { n: 'Boise', lat: 43.6, lon: -116.2 }, { n: 'Malta, NY', lat: 42.9, lon: -73.8 },
-    { n: 'Dresden', lat: 51.0, lon: 13.7, label: true }, { n: 'Hsinchu · TSMC', lat: 24.8, lon: 121.0, label: true },
+    { n: 'Hsinchu · TSMC', lat: 24.8, lon: 121.0, label: true },
     { n: 'Korea · Samsung, SK hynix', lat: 37.2, lon: 127.2, label: true, dy: -6 },
     { n: 'Yokkaichi · Kioxia', lat: 35.0, lon: 136.6, label: true, dy: 11 }, { n: 'Shanghai', lat: 31.2, lon: 121.5 }, { n: 'Singapore', lat: 1.35, lon: 103.8 }, { n: 'Chandler', lat: 33.3, lon: -111.8 }
   ];
