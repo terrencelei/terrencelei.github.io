@@ -11,12 +11,11 @@ Every image slot on the site, what to shoot, and where the file goes. Placeholde
 | `assets/placeholders/og.svg` | Social share preview (Open Graph / Twitter card) | Name + "Mechanical Engineer" over a project photo. Save as **`assets/og.jpg`** and point the `og:image` and `twitter:image` tags at it; many sites ignore SVG previews. | 1200x630 |
 | `assets/placeholders/rocket-flight-hardware.svg` | 01 Gaucho Rocket Project | Assembled vehicle or avionics bay on the bench, or the rocket on the rail at launch. | 4:3 (e.g. 1200x900) |
 | `assets/placeholders/rocket-design-review.svg` | 01 Gaucho Rocket Project | You presenting at a design review, or a CAD / FEA screenshot of a part you designed. | 4:3 |
-| `assets/placeholders/applied-materials.svg` | 02 Applied Materials | Non-proprietary only: you at the Santa Clara campus or an intern event. | 4:3 |
 | `assets/placeholders/solar-array-hinge.svg` | 03 Northrop Grumman | Close-up of the solar array hinge assembly (spring, damper, heater, limit switch) or a deployable array assembly. Only a photo Northrop has cleared for public release. | 4:3 |
 | `assets/placeholders/begley-lab.svg` | 04 Begley Lab, UCSB | Robot arm and camera rig at the workbench (with lab permission), or you at the bench. | 4:3 |
 | `assets/placeholders/genentech-capstone.svg` | 05 Genentech capstone | xArm 6 in simulation (RViz / MoveIt screenshot) or a team photo. | 4:3 |
 
-Already real: `assets/cygnus-capture.jpg` and `assets/cygnus-arrays.jpg` are NASA photos of the Cygnus spacecraft (iss071e418233, iss071e329920; NASA imagery is public domain, credited in the captions).
+Already real: `assets/amat-fab.jpg` is a public-domain U.S. State Department photo of an Applied Materials cleanroom (Maydan Technology Center, 2022, via Wikimedia Commons), cropped to 4:3. `assets/cygnus-capture.jpg` and `assets/cygnus-arrays.jpg` are NASA photos of the Cygnus spacecraft (iss071e418233, iss071e329920; NASA imagery is public domain, credited in the captions).
 Also real (copied from the Autonomous Shopping Cart site, no action needed):
 `assets/cart-photo.jpg`, `assets/cad.jpg`, `assets/vision.jpg`, `assets/follow.mp4`, `assets/follow-poster.jpg`
 (chapter 06).
