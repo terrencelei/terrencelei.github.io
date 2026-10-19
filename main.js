@@ -133,3 +133,76 @@
   if (y) y.textContent = String(new Date().getFullYear());
 })();
 
+
+/* ---------- dark lab: one sample path, two different hands ---------- */
+(function () {
+  var svg = document.getElementById('dl-scene'); if (!svg) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var up = $('dl-up'), fore = $('dl-fore'), elbow = $('dl-elbow'), grip = $('dl-grip'), sample = $('dl-sample');
+  var head = $('dl-head'), body = $('dl-body'), legA = $('dl-legA'), legB = $('dl-legB'), up2 = $('dl-up2'), fore2 = $('dl-fore2');
+  var toggle = $('dl-toggle');
+  var TRAY = { x: 69, y: 222 }, FIX = { x: 292, y: 220 }, CHUTE = { x: 352, y: 232 }, PASS = { x: 400, y: 211 }, FAIL = { x: 400, y: 245 };
+  var BASE = { x: 188, y: 232 }, L1 = 84, L2 = 66;
+  var T = 3.2, PERSON_S = 2, AUTO_S = 8;
+  var manual = false, person = false, cycle = 0;
+  function setMode(p) { person = p; svg.classList.toggle('is-person', p); }
+  var ease = function (u) { return u < .5 ? 2 * u * u : -1 + (4 - 2 * u) * u; };
+  var lerp = function (a, b, u) { return { x: a.x + (b.x - a.x) * u, y: a.y + (b.y - a.y) * u }; };
+  function arc(a, b, u, lift) { var e = ease(u); return { x: a.x + (b.x - a.x) * e, y: a.y + (b.y - a.y) * e - lift * Math.sin(Math.PI * e) }; }
+  function hand(ph) {
+    if (ph < .10) return { x: TRAY.x, y: TRAY.y - 6 * (ph / .10) };
+    if (ph < .48) return arc(TRAY, FIX, (ph - .10) / .38, 64);
+    if (ph < .60) return FIX;
+    return arc(FIX, TRAY, (ph - .60) / .40, 50);
+  }
+  function samplePos(ph, k) {
+    if (ph < .48) return hand(ph);
+    if (ph < .62) return FIX;
+    if (ph < .72) return lerp(FIX, CHUTE, ease((ph - .62) / .10));
+    if (ph < .82) return lerp(CHUTE, (k % 2) ? FAIL : PASS, ease((ph - .72) / .10));
+    return null;
+  }
+  // two-link IK, elbow bent upward
+  function ik(base, target, l1, l2, flip) {
+    var dx = target.x - base.x, dy = target.y - base.y, d = Math.min(Math.hypot(dx, dy), l1 + l2 - 1);
+    var a = Math.atan2(dy, dx), c = (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d);
+    var b = Math.acos(Math.max(-1, Math.min(1, c)));
+    var p1 = { x: base.x + l1 * Math.cos(a - b), y: base.y + l1 * Math.sin(a - b) };
+    var p2 = { x: base.x + l1 * Math.cos(a + b), y: base.y + l1 * Math.sin(a + b) };
+    if (flip === 'up') return p1.y < p2.y ? p1 : p2;   // elbow always above the line
+    return flip ? p2 : p1;
+  }
+  function setLine(el, a, b) { el.setAttribute('x1', a.x); el.setAttribute('y1', a.y); el.setAttribute('x2', b.x); el.setAttribute('y2', b.y); }
+  function draw(ph, k) {
+    var h = hand(ph), sp = samplePos(ph, k);
+    // robot: shoulder at BASE, wrist 10px above the sample
+    var wrist = { x: h.x, y: h.y - 12 }, el = ik(BASE, wrist, L1, L2, 'up');
+    setLine(up, BASE, el); setLine(fore, el, wrist); elbow.setAttribute('cx', el.x); elbow.setAttribute('cy', el.y);
+    grip.setAttribute('transform', 'translate(' + wrist.x + ',' + (wrist.y + 10) + ')');
+    // person: walks between tray and fixture, arm reaches the sample
+    var px = Math.max(112, Math.min(262, h.x - 34)), sh = { x: px, y: 190 };
+    head.setAttribute('cx', px); head.setAttribute('cy', 172);
+    setLine(body, { x: px, y: 180 }, { x: px, y: 222 });
+    setLine(legA, { x: px, y: 222 }, { x: px - 8, y: 250 }); setLine(legB, { x: px, y: 222 }, { x: px + 8, y: 250 });
+    var ph2 = { x: h.x, y: h.y - 6 }, el2 = ik(sh, ph2, 36, 34, true);
+    setLine(up2, sh, el2); setLine(fore2, el2, ph2);
+    if (sp) { sample.style.display = ''; sample.setAttribute('transform', 'translate(' + sp.x + ',' + sp.y + ')'); sample.setAttribute('fill', (ph >= .72 && (k % 2)) ? '#F0766B' : '#6FB3A8'); }
+    else sample.style.display = 'none';
+  }
+  var reduced = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || document.documentElement.classList.contains('static');
+  toggle.addEventListener('click', function () { manual = true; setMode(!person); });
+  toggle.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); manual = true; setMode(!person); } });
+  if (reduced) { setMode(false); draw(.30, 0); return; }
+  var running = false, raf = 0, t0 = null;
+  function tick(now) {
+    if (!running) return; raf = requestAnimationFrame(tick);
+    if (t0 === null) t0 = now; var t = (now - t0) / 1000;
+    if (!manual) { var c = t % (PERSON_S + AUTO_S); setMode(c < PERSON_S); }
+    draw((t % T) / T, Math.floor(t / T));
+  }
+  function start() { if (running) return; running = true; t0 = null; raf = requestAnimationFrame(tick); }
+  function stop() { running = false; cancelAnimationFrame(raf); }
+  setMode(true); draw(0, 0);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { en.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: .15 }).observe(svg);
+  else start();
+})();
