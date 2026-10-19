@@ -46,3 +46,18 @@ python3 -m http.server 8000
 
 Animations respect `prefers-reduced-motion`; with it on, every explainer shows its resting state and
 the video gets controls instead of autoplaying.
+
+## PDF version (for application portals that want a file)
+
+Chrome's print layout collapses the two-column chapters, so the PDF is made from a full-width
+screenshot sliced one section per page:
+
+1. `python3 -m http.server 8765` in this folder.
+2. Take a 1440 px full-page screenshot of `http://localhost:8765/?shot&theme=light` (any CDP
+   screenshot tool; `?shot` freezes the animations and reveals every section).
+3. Read each section's `top`/`height` from `.hero, .marquee, article.chapter, section.sec,
+   footer.contact`, crop one image per section (hero + ribbon together, skills + interests
+   together), resize to 1200 px wide and save with Pillow:
+   `first.save('Terrence_Lei_Portfolio.pdf', save_all=True, append_images=rest, resolution=144, quality=82)`.
+
+The application agent keeps the result at `~/application-agent/private/Terrence_Lei_Portfolio.pdf`.
