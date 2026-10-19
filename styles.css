@@ -376,13 +376,9 @@ section { scroll-margin-top: 70px; }
 .spin.slow { animation-duration: 6s; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .gate { animation: gate 3.2s ease-in-out infinite; }
-@keyframes gate {
-  0%, 6%   { transform: translate(0, 0); }
-  30%, 40% { transform: translate(0, -96px); }
-  52%, 70% { transform: translate(44px, -96px); }
-  80%, 84% { transform: translate(0, -96px); }
-  100%     { transform: translate(0, 0); }
-}
+@keyframes gate { 0%, 6% { transform: translateY(0); } 30%, 84% { transform: translateY(-90px); } 100% { transform: translateY(0); } }
+.gate-plate { animation: gate-plate 3.2s ease-in-out infinite; }
+@keyframes gate-plate { 0%, 40% { transform: translateX(0); } 52%, 70% { transform: translateX(44px); } 80%, 100% { transform: translateX(0); } }
 .gate-port { animation: gate-port 3.2s steps(1) infinite; }
 @keyframes gate-port { 0%, 51% { opacity: .18; } 52%, 70% { opacity: .9; } 71%, 100% { opacity: .18; } }
 .lbl-travel { animation: lbl-travel 3.2s ease infinite; }

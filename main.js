@@ -142,7 +142,7 @@
   var head = $('dl-head'), body = $('dl-body'), legA = $('dl-legA'), legB = $('dl-legB'), up2 = $('dl-up2'), fore2 = $('dl-fore2');
   var carriage = $('dl-carriage'), cone = $('dl-conePath'), lswA = $('dl-lswA'), lswB = $('dl-lswB'), toggle = $('dl-toggle');
   var TRAY = { x: 91, y: 224 }, FIX = { x: 292, y: 220 }, CHUTE = { x: 352, y: 232 }, PASS = { x: 400, y: 211 }, FAIL = { x: 400, y: 245 };
-  var BASE = { x: 32, y: 238 }, L1 = 150, L2 = 128;          // robot: base at the far left, always reaching rightward (no elbow flip)
+  var BASE = { x: 188, y: 120 }, L1 = 80, L2 = 60;           // robot: overhead mount on a centre column; one elbow branch, forearm crosses in front
   var SH_Y = 190, A1 = 22, A2 = 20;                          // person: shoulder height, upper arm, forearm
   var RAIL = { a: 84, b: 316 };
   var T = 3.2, PERSON_S = 2, AUTO_S = 8;
@@ -176,7 +176,7 @@
   function draw(ph, k) {
     var h = hand(ph), sp = samplePos(ph, k);
     // robot
-    var wrist = { x: h.x, y: h.y - 12 }, el = ik(BASE, wrist, L1, L2, -1);
+    var wrist = { x: h.x, y: h.y - 12 }, el = ik(BASE, wrist, L1, L2, 1);
     setLine(up, BASE, el); setLine(fore, el, wrist); elbow.setAttribute('cx', el.x); elbow.setAttribute('cy', el.y);
     grip.setAttribute('transform', 'translate(' + wrist.x + ',' + (wrist.y + 10) + ')');
     // person: stands just left of the work and walks with it
