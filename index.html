@@ -161,7 +161,6 @@
           </ul>
         </div>
         <div class="ch-media">
-          <span class="sticker ch-sticker" aria-hidden="true">7 subsystems<small>one vehicle</small></span>
           <figure class="fig-card explainer reveal" style="margin:0">
             <svg viewBox="0 0 520 320" role="img" aria-labelledby="rk-t rk-d">
               <title id="rk-t">Rocket integration explainer</title>
@@ -367,12 +366,65 @@
           </ul>
         </div>
         <div class="ch-media">
-          <span class="sticker steel ch-sticker" aria-hidden="true">GD&amp;T released<small>2D drawings</small></span>
-          <figure class="photo reveal" style="margin:0"><img src="assets/cygnus-capture.jpg" width="1279" height="718" loading="lazy" style="aspect-ratio:16/9" alt="Northrop Grumman's Cygnus cargo spacecraft with its two round UltraFlex solar arrays deployed, about to be captured by the space station's Canadarm2 above a cloud deck"><figcaption>Cygnus and its UltraFlex solar arrays · photo NASA</figcaption></figure>
-          <div class="photo-row">
-            <figure class="photo reveal"><img src="assets/cygnus-arrays.jpg" width="1280" height="853" loading="lazy" alt="Head-on view of Cygnus with both cymbal-shaped solar arrays fully deployed, held by Canadarm2"><figcaption>Both arrays deployed · NASA</figcaption></figure>
-            <figure class="photo reveal"><img src="assets/placeholders/solar-array-hinge.svg" width="1200" height="900" loading="lazy" alt="Placeholder: solar array hinge assembly with spring, damper, heater and limit switch"><figcaption>Array hinge: spring, damper, heater, limit switch</figcaption></figure>
-          </div>
+          <figure class="fig-card explainer reveal" style="margin:0">
+            <svg viewBox="0 0 520 320" role="img" aria-labelledby="ng-t ng-d">
+              <title id="ng-t">Solar array hinge explainer</title>
+              <desc id="ng-d">Conceptual side view of one deployment hinge on a solar array. A fixed yoke holds a hinge pin. A torsion spring drives the panel arm open, a rotary damper on the pin slows it, a heater patch keeps the damper warm, and a limit switch at the end of travel closes when the panel reaches the deployed position, sending a deployed signal. The panel swings from stowed to deployed and the switch lights up.</desc>
+              <defs>
+                <pattern id="hatch-ng" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="10" style="stroke:var(--g-mut)" stroke-width="2"/>
+                </pattern>
+              </defs>
+              <text class="svg-t" x="40" y="26">one deployment hinge, side view (conceptual)</text>
+
+              <!-- stowed ghost (arm folded up) -->
+              <rect class="s-mut" stroke-width="1.5" stroke-dasharray="4 4" fill="none" x="181" y="34" width="18" height="146" rx="4" opacity=".6"/>
+              <text class="svg-t" x="206" y="46">stowed</text>
+
+              <!-- fixed yoke / structure -->
+              <rect x="40" y="165" width="130" height="30" fill="url(#hatch-ng)" class="s-ink" stroke-width="2" rx="3"/>
+              <rect class="f-ink" x="150" y="146" width="40" height="68" rx="4"/>
+              <text class="svg-t" x="40" y="212">yoke (fixed)</text>
+
+              <!-- panel arm: rotates about the pin at (190,180) -->
+              <g class="an hinge-arm">
+                <rect class="f-sec s-ink" stroke-width="2" x="190" y="171" width="300" height="18" rx="4"/>
+                <g class="s-ink" stroke-width="1.5"><line x1="230" y1="171" x2="230" y2="189"/><line x1="270" y1="171" x2="270" y2="189"/><line x1="310" y1="171" x2="310" y2="189"/><line x1="350" y1="171" x2="350" y2="189"/><line x1="390" y1="171" x2="390" y2="189"/><line x1="430" y1="171" x2="430" y2="189"/><line x1="470" y1="171" x2="470" y2="189"/></g>
+                <text class="svg-t ink" x="340" y="163" text-anchor="middle">panel</text>
+              </g>
+
+              <!-- rotary damper + torsion spring on the pin -->
+              <circle class="f-tag s-ink" stroke-width="2" cx="190" cy="180" r="26"/>
+              <path class="an spring s-acc" stroke-width="2.5" fill="none" d="M176 180 a14 14 0 1 1 14 14 a9 9 0 1 1 -9 -9 a4 4 0 1 1 4 4"/>
+              <circle class="f-ink" cx="190" cy="180" r="4"/>
+              <!-- heater patch beside the damper -->
+              <path class="an heater s-acc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M198 214 l4 -6 l4 6 l4 -6 l4 6 l4 -6 l4 6 l4 -6 l4 6"/>
+
+              <!-- limit switch at end of travel -->
+              <rect class="f-surf s-ink" stroke-width="2" x="240" y="200" width="44" height="22" rx="4"/>
+              <g class="an sw-lever"><line class="s-ink" stroke-width="3" stroke-linecap="round" x1="244" y1="198" x2="282" y2="190"/></g>
+              <circle class="an sw-led f-acc" cx="262" cy="211" r="4"/>
+              <text class="an sw-sig svg-t acc" x="292" y="215">deployed signal</text>
+
+              <!-- callouts -->
+              <line class="s-mut" stroke-width="1" x1="178" y1="158" x2="140" y2="86"/>
+              <text class="svg-t ink" x="40" y="68">torsion spring</text><text class="svg-t" x="40" y="82">drives it open</text>
+              <line class="s-mut" stroke-width="1" x1="164" y1="180" x2="130" y2="136"/>
+              <text class="svg-t ink" x="40" y="120">damper</text><text class="svg-t" x="40" y="134">slows the swing</text>
+              <line class="s-mut" stroke-width="1" x1="214" y1="216" x2="170" y2="252"/>
+              <text class="svg-t ink" x="40" y="262">heater</text><text class="svg-t" x="40" y="276">keeps the damper warm</text>
+              <line class="s-mut" stroke-width="1" x1="262" y1="222" x2="262" y2="250"/>
+              <text class="svg-t ink" x="236" y="264">limit switch</text><text class="svg-t" x="236" y="278">confirms end of travel</text>
+              <text class="svg-t acc" x="236" y="294">my failure-analysis subject</text>
+
+              <!-- phase labels -->
+              <text class="an ng-l1 svg-t ink" x="490" y="60" text-anchor="end">1 spring opens</text>
+              <text class="an ng-l2 svg-t ink" x="490" y="76" text-anchor="end">2 damper slows</text>
+              <text class="an ng-l3 svg-t ink" x="490" y="92" text-anchor="end">3 switch confirms</text>
+            </svg>
+            <figcaption class="fig-cap"><span><b>Concept, not a drawing.</b> Spring opens the panel, the damper paces it, the heater keeps the damper in range, and the limit switch confirms the panel reached the stop.</span><span class="live">illustration</span></figcaption>
+          </figure>
+          <figure class="photo reveal"><img src="assets/cygnus-arrays.jpg" width="1280" height="853" loading="lazy" alt="Head-on view of Northrop Grumman's Cygnus spacecraft with both cymbal-shaped UltraFlex solar arrays fully deployed, held by the space station's Canadarm2"><figcaption>Cygnus, both UltraFlex arrays deployed · photo NASA</figcaption></figure>
         </div>
       </div>
     </div>
@@ -403,7 +455,6 @@
           </ul>
         </div>
         <div class="ch-media">
-          <span class="sticker ch-sticker" aria-hidden="true">50k / day<small>test potential</small></span>
           <figure class="fig-card explainer reveal" style="margin:0">
             <svg viewBox="0 0 520 320" role="img" aria-labelledby="hl-t hl-d">
               <title id="hl-t">Automated test cell explainer</title>
@@ -493,7 +544,6 @@
           </ul>
         </div>
         <div class="ch-media">
-          <span class="sticker steel ch-sticker" aria-hidden="true">0.01 g<small>resolution target</small></span>
           <figure class="fig-card explainer reveal" style="margin:0">
             <svg viewBox="0 0 520 320" role="img" aria-labelledby="gn-t gn-d">
               <title id="gn-t">Closed-loop powder dispensing explainer</title>
@@ -589,7 +639,6 @@
           </div>
         </div>
         <div class="ch-media">
-          <span class="sticker ch-sticker" aria-hidden="true">It follows you<small>real footage</small></span>
           <div class="video-card reveal">
             <video class="autoplay-in-view" src="assets/follow.mp4" poster="assets/follow-poster.jpg" muted loop playsinline preload="metadata" width="854" height="480" aria-label="The cart following a shopper down a hallway"></video>
           </div>
