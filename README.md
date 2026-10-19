@@ -18,7 +18,7 @@ A single static page with no build step and no JavaScript libraries:
 ## Edit content
 
 - **Text:** edit `index.html` directly. Each project is an `<article class="chapter">` with an id
-  (`rocket`, `applied-materials` (State Dept. cleanroom photo), `northrop-grumman` (hinge diagram + NASA Cygnus photo), `begley-lab` (own test footage), `genentech` (generic MoveIt screenshot), `shopping-cart`).
+  (`rocket` (HALO CAD + review images), `applied-materials` (State Dept. cleanroom photo), `northrop-grumman` (hinge diagram + NASA Cygnus photo), `begley-lab` (own test footage), `genentech` (generic MoveIt screenshot), `shopping-cart`).
 - **Interests:** replace `[Interest 1]` … `[Interest 4]` and their one-line descriptions in the
   `#interests` section.
 - **About me:** the bio in `#about` is a draft written from the resume; rewrite it in your own voice.

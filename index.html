@@ -142,15 +142,15 @@
       <div class="ch-top reveal">
         <span class="ch-num" aria-hidden="true">01</span>
         <div>
-          <p class="ch-kind">Student rocketry team</p>
+          <p class="ch-kind">Student rocketry team · HALO, a VTVL hopper</p>
           <h3 class="ch-title" id="ch1-title">Gaucho Rocket Project</h3>
           <p class="ch-role"><b>Vice President</b>, Sep 2024 – Jun 2026, UC Santa Barbara</p>
         </div>
       </div>
       <div class="ch-body">
         <div class="ch-copy reveal">
-          <p class="ch-hook">Turning a team's subsystems into one packaged flight vehicle.</p>
-          <p class="ch-prose">As vice president I owned integration: structures, propulsion, actuators, sensors, custom PCBs, power electronics and controls all had to fit, survive and work together as flight hardware.</p>
+          <p class="ch-hook">HALO: a hopper that takes off, hovers, and lands on its own legs.</p>
+          <p class="ch-prose">HALO is the team's vertical take-off, vertical landing vehicle: a ~3 kN nitrous oxide / isopropanol engine on a gimbal, four aluminum rails carrying the tanks and avionics, cold-gas roll thrusters and splayed landing legs, built for a stable hover and a ~100 m hop. As vice president I owned integration: structures, propulsion, actuators, sensors, custom PCBs, power electronics and controls had to fit, survive and work together.</p>
           <ul class="bullets">
             <li>Ran FEA and structural optimization to trade mass against stiffness, strength and factor of safety.</li>
             <li>Designed for manufacturing across CNC machining, additive, sheet metal and composites.</li>
@@ -160,74 +160,84 @@
         <div class="ch-media">
           <figure class="fig-card explainer reveal" style="margin:0">
             <svg viewBox="0 0 520 320" role="img" aria-labelledby="rk-t rk-d">
-              <title id="rk-t">Rocket integration explainer</title>
-              <desc id="rk-d">An exploded rocket with fins, propulsion, actuators, avionics and nose cone slides together into one vehicle. Below, a bracket shows an FEA stress hot spot at its fillet, and a gauge needle settles in the band between too heavy and too low a factor of safety.</desc>
+              <title id="rk-t">HALO integration explainer</title>
+              <desc id="rk-d">An exploded side view of the HALO hopper: avionics deck, nitrogen pressurant tank, nitrous oxide tank, isopropanol tank, baseplate, gimbaled engine and landing legs slide together onto four vertical rails. To the right, a baseplate FEA disc shows its stress peak at the center cutout, and a gauge needle settles in the band between too heavy and too low a factor of safety.</desc>
               <defs>
-                <radialGradient id="fea-g" gradientUnits="userSpaceOnUse" cx="80" cy="266" r="170">
+                <radialGradient id="fea-g" gradientUnits="userSpaceOnUse" cx="398" cy="96" r="90">
                   <stop offset="0" style="stop-color:var(--g-acc)"/>
-                  <stop offset=".35" style="stop-color:var(--g-acc);stop-opacity:.55"/>
+                  <stop offset=".3" style="stop-color:var(--g-acc);stop-opacity:.55"/>
                   <stop offset="1" style="stop-color:var(--g-sec)"/>
                 </radialGradient>
               </defs>
-              <!-- rocket, nose to the right -->
-              <line class="s-line" x1="20" y1="86" x2="500" y2="86" stroke-width="1" stroke-dasharray="4 6"/>
-              <g class="an rk-part" style="--dy:0;--dx:-34px">
-                <path class="f-acc s-ink" stroke-width="2" d="M52 66 L32 40 L84 66 Z M52 106 L32 132 L84 106 Z"/>
-                <path class="f-ink" d="M52 74 L38 68 V104 L52 98 Z"/>
-                <rect class="f-tag s-ink" stroke-width="2" x="52" y="66" width="40" height="40"/>
-                <text class="svg-t ink rk-lbl an" x="58" y="26" text-anchor="middle">fins</text>
+
+              <!-- rails: the fixed frame everything mounts to -->
+              <line class="s-ink" stroke-width="4" x1="104" y1="44" x2="104" y2="232"/>
+              <line class="s-ink" stroke-width="4" x1="176" y1="44" x2="176" y2="232"/>
+              <text class="svg-t" x="40" y="140" text-anchor="middle">four</text>
+              <text class="svg-t" x="40" y="154" text-anchor="middle">rails</text>
+              <line class="s-mut" stroke-width="1" x1="58" y1="146" x2="98" y2="146"/>
+
+              <!-- stack, top to bottom; each part slides in from --dy -->
+              <g class="an rk-part" style="--dx:0;--dy:-30px">
+                <rect class="f-ink" x="98" y="36" width="84" height="10" rx="3"/>
+                <rect class="f-acc" x="118" y="30" width="10" height="6" rx="1"/><rect class="f-acc" x="150" y="30" width="10" height="6" rx="1"/>
+                <text class="svg-t ink rk-lbl an" x="196" y="44">avionics deck</text>
               </g>
-              <g class="an rk-part" style="--dy:0;--dx:-16px">
-                <rect class="f-surf s-ink" stroke-width="2" x="92" y="66" width="116" height="40"/>
-                <g class="s-line" stroke-width="3"><line x1="112" y1="72" x2="112" y2="100"/><line x1="130" y1="72" x2="130" y2="100"/><line x1="148" y1="72" x2="148" y2="100"/><line x1="166" y1="72" x2="166" y2="100"/><line x1="184" y1="72" x2="184" y2="100"/></g>
-                <text class="svg-t ink rk-lbl an" x="150" y="152" text-anchor="middle">propulsion</text>
+              <g class="an rk-part" style="--dx:0;--dy:-22px">
+                <rect class="f-ink s-ink" stroke-width="2" x="128" y="56" width="24" height="40" rx="10"/>
+                <text class="svg-t ink rk-lbl an" x="196" y="80">N2 pressurant</text>
               </g>
-              <g class="an rk-part" style="--dy:0;--dx:0px">
-                <rect class="f-tag s-ink" stroke-width="2" x="210" y="66" width="54" height="40"/>
-                <circle class="s-ink" stroke-width="2" cx="237" cy="86" r="11"/>
-                <line class="s-acc" stroke-width="3" x1="237" y1="86" x2="245" y2="80"/>
-                <text class="svg-t ink rk-lbl an" x="237" y="26" text-anchor="middle">actuators</text>
+              <g class="an rk-part" style="--dx:0;--dy:-12px">
+                <rect class="f-tag s-ink" stroke-width="2" x="116" y="104" width="48" height="54" rx="8"/>
+                <text class="svg-t ink rk-lbl an" x="196" y="134">N2O tank</text>
               </g>
-              <g class="an rk-part" style="--dy:0;--dx:16px">
-                <rect class="f-surf s-ink" stroke-width="2" x="266" y="66" width="96" height="40"/>
-                <rect class="f-sec" x="276" y="74" width="76" height="24" rx="3"/>
-                <rect class="f-surf" x="284" y="80" width="14" height="12" rx="1"/>
-                <rect class="f-surf" x="304" y="80" width="22" height="12" rx="1"/>
-                <rect class="f-surf" x="332" y="80" width="12" height="12" rx="1"/>
-                <text class="svg-t ink rk-lbl an" x="314" y="152" text-anchor="middle">avionics + PCBs</text>
+              <g class="an rk-part" style="--dx:0;--dy:-4px">
+                <rect class="f-tag s-ink" stroke-width="2" x="116" y="164" width="48" height="54" rx="8"/>
+                <text class="svg-t ink rk-lbl an" x="196" y="194">IPA tank</text>
               </g>
-              <g class="an rk-part" style="--dy:0;--dx:34px">
-                <path class="f-acc s-ink" stroke-width="2" d="M364 66 Q432 68 470 86 Q432 104 364 106 Z"/>
-                <text class="svg-t ink rk-lbl an" x="420" y="26" text-anchor="middle">nose cone</text>
+              <g class="an rk-part" style="--dx:0;--dy:8px">
+                <rect class="f-ink" x="98" y="226" width="84" height="8" rx="2"/>
+                <circle class="f-surf s-ink" stroke-width="2" cx="140" cy="240" r="6"/>
+                <path class="f-acc s-ink" stroke-width="2" d="M132 244 H148 L158 270 H122 Z"/>
+                <text class="svg-t ink rk-lbl an" x="196" y="228">baseplate</text>
+                <text class="svg-t ink rk-lbl an" x="196" y="246">TVC engine</text>
+              </g>
+              <g class="an rk-part" style="--dx:0;--dy:26px">
+                <g class="s-ink" stroke-width="3" stroke-linecap="round"><line x1="104" y1="230" x2="48" y2="298"/><line x1="176" y1="230" x2="232" y2="298"/><line x1="112" y1="230" x2="90" y2="304"/><line x1="168" y1="230" x2="190" y2="304"/></g>
+                <g class="f-ink"><ellipse cx="46" cy="300" rx="10" ry="4"/><ellipse cx="234" cy="300" rx="10" ry="4"/><ellipse cx="88" cy="306" rx="10" ry="4"/><ellipse cx="192" cy="306" rx="10" ry="4"/></g>
+                <text class="svg-t ink rk-lbl an" x="140" y="319" text-anchor="middle">landing legs</text>
               </g>
 
-              <!-- FEA bracket -->
-              <text class="svg-t" x="40" y="182">bracket stress (FEA)</text>
-              <path d="M40 192 H74 V258 Q74 272 88 272 H220 V300 H40 Z" fill="url(#fea-g)" class="s-ink" stroke-width="2"/>
-              <circle class="an fea-hot f-acc" cx="80" cy="266" r="16" opacity=".8"/>
-              <circle class="f-surf s-ink" stroke-width="1.5" cx="57" cy="210" r="6"/>
-              <circle class="f-surf s-ink" stroke-width="1.5" cx="200" cy="286" r="6"/>
-              <path class="s-ink" stroke-width="1.5" d="M96 262 L122 232 H170"/>
-              <text class="svg-t ink" x="124" y="226">hot spot at fillet</text>
+              <!-- baseplate FEA -->
+              <text class="svg-t" x="310" y="40">baseplate FEA (6061-T6)</text>
+              <ellipse cx="398" cy="96" rx="82" ry="32" style="fill:url(#fea-g)" class="s-ink" stroke-width="2"/>
+              <ellipse class="f-surf s-ink" stroke-width="1.5" cx="398" cy="96" rx="18" ry="7"/>
+              <circle class="an fea-hot f-acc" cx="414" cy="94" r="9" opacity=".85"/>
+              <g class="f-surf"><circle cx="340" cy="90" r="3"/><circle cx="456" cy="90" r="3"/><circle cx="362" cy="116" r="3"/><circle cx="434" cy="116" r="3"/></g>
+              <path class="s-ink" stroke-width="1.5" d="M412 92 L398 72"/>
+              <text class="svg-t ink" x="310" y="66">peak at cutout</text>
+              <text class="svg-t ink" x="310" y="150">~67 MPa peak, FoS ≈ 4</text>
 
               <!-- mass vs factor of safety gauge -->
-              <text class="svg-t" x="390" y="186" text-anchor="middle">mass vs. factor of safety</text>
-              <path class="s-line" stroke-width="16" d="M306 282 A84 84 0 0 1 361.3 203"/>
-              <path class="s-acc" stroke-width="16" d="M361.3 203 A84 84 0 0 1 418.7 203"/>
-              <path class="s-sec" stroke-width="16" d="M418.7 203 A84 84 0 0 1 474 282"/>
-              <g class="an gauge-needle" style="transform-box:view-box;transform-origin:390px 282px">
-                <line class="s-ink" stroke-width="4" stroke-linecap="round" x1="390" y1="282" x2="390" y2="214"/>
+              <text class="svg-t" x="400" y="196" text-anchor="middle">mass vs. factor of safety</text>
+              <path class="s-line" stroke-width="14" d="M336 290 A64 64 0 0 1 368 234.6"/>
+              <path class="s-acc" stroke-width="14" d="M368 234.6 A64 64 0 0 1 432 234.6"/>
+              <path class="s-sec" stroke-width="14" d="M432 234.6 A64 64 0 0 1 464 290"/>
+              <g class="an gauge-needle" style="transform-box:view-box;transform-origin:400px 290px">
+                <line class="s-ink" stroke-width="4" stroke-linecap="round" x1="400" y1="290" x2="400" y2="238"/>
               </g>
-              <circle class="f-ink" cx="390" cy="282" r="7"/>
-              <text class="svg-t" x="306" y="306" text-anchor="middle">heavy</text>
-              <text class="svg-t" x="474" y="306" text-anchor="middle">low FoS</text>
-              <text class="svg-t ink" x="390" y="306" text-anchor="middle">target</text>
+              <circle class="f-ink" cx="400" cy="290" r="6"/>
+              <text class="svg-t" x="336" y="312" text-anchor="middle">heavy</text>
+              <text class="svg-t" x="464" y="312" text-anchor="middle">low FoS</text>
+              <text class="svg-t ink" x="400" y="312" text-anchor="middle">target</text>
             </svg>
-            <figcaption class="fig-cap"><span><b>Explode, integrate, check.</b> Parts come together into one vehicle, each sized by FEA against a safety target.</span><span class="live">illustration</span></figcaption>
+            <figcaption class="fig-cap"><span><b>Stack, integrate, check.</b> Deck, tanks, baseplate, engine and legs mount to four rails; the baseplate FEA peaks at the center cutout, and mass is traded against factor of safety.</span><span class="live">illustration</span></figcaption>
           </figure>
-          <div class="photo-row reveal">
-            <figure class="photo"><img src="assets/placeholders/rocket-flight-hardware.svg" width="1200" height="900" loading="lazy" alt="Placeholder: Gaucho Rocket flight hardware"><figcaption>Flight hardware</figcaption></figure>
-            <figure class="photo"><img src="assets/placeholders/rocket-design-review.svg" width="1200" height="900" loading="lazy" alt="Placeholder: Gaucho Rocket design review"><figcaption>Design review</figcaption></figure>
+          <figure class="photo reveal"><img src="assets/halo-render.jpg" width="1000" height="1250" loading="lazy" style="aspect-ratio:4/5" alt="CAD render of HALO: a tall vehicle on four aluminum rails with an avionics deck on top, a dark pressurant tank, two stacked propellant tanks, a baseplate with a gimbaled engine, and four splayed landing legs on footpads"><figcaption>HALO, full-vehicle CAD</figcaption></figure>
+          <div class="photo-row three reveal">
+            <figure class="photo"><img src="assets/halo-tvc.jpg" width="1200" height="900" loading="lazy" alt="Render of the thrust vector control gimbal with two linear actuators under the engine"><figcaption>TVC gimbal + actuators</figcaption></figure>
+            <figure class="photo"><img src="assets/halo-baseplate-fea.jpg" width="1200" height="900" loading="lazy" alt="Ansys FEA stress plot of the aluminum baseplate"><figcaption>Baseplate FEA</figcaption></figure>
+            <figure class="photo"><img src="assets/halo-leg-fea.jpg" width="1200" height="900" loading="lazy" alt="Ansys FEA stress plot of a landing-leg footpad fixture"><figcaption>Landing-leg FEA</figcaption></figure>
           </div>
         </div>
       </div>
