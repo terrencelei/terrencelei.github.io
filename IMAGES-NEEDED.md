@@ -10,13 +10,22 @@ Every image slot on the site, what to shoot, and where the file goes. Placeholde
 
 Already real: `assets/amat-fab.jpg` is a public-domain U.S. State Department photo of an Applied Materials cleanroom (Maydan Technology Center, 2022, via Wikimedia Commons), cropped to 4:3. `assets/cygnus-berth.jpg` is a NASA photo of Cygnus being installed on the ISS (iss065e238807; NASA imagery is public domain, credited in the captions).
 Also real: `assets/halo-render.jpg`, `assets/halo-tvc.jpg`, `assets/halo-leg-fea.jpg` are the team's own HALO CAD render and design-review material (supplied by Terrence 2026-10-18).
-Also real: `assets/headshot.jpg` is his headshot (from a 674x496 screenshot, so it is soft at large sizes; a higher-resolution original would help).
+Also real: `assets/headshot.jpg` is his headshot: a 674x496 screenshot crop upscaled 4x with Real-ESRGAN, then lightly brightened, contrast-boosted and sharpened. A higher-resolution original would still beat it.
 Also real: `assets/about-mitty.jpg` is Terrence in his high school robotics lab (Mitty Robotics).
 Also real: `assets/moveit-rviz.jpg` is a generic MoveIt/RViz screenshot from the MoveIt 2 tutorials repository (BSD-3, PickNik/Willow Garage), stand-in until a real xArm 6 simulation screenshot exists.
 Also real: `assets/begley-test.mp4` (+ poster) is Terrence's own early Begley Lab test footage, cropped square.
 Also real (copied from the Autonomous Shopping Cart site, no action needed):
 `assets/cart-photo.jpg`, `assets/cad.jpg`, `assets/vision.jpg`, `assets/follow.mp4`, `assets/follow-poster.jpg`
 (chapter 06).
+
+## Logos still needed
+
+| Slot | Where | What to send |
+|---|---|---|
+| Gaucho Rocket Project logo | 01 chapter header | The club's logo (SVG or PNG on transparent, at least 400 px wide). Save as `assets/logos/gaucho-rocket.svg` or `.png`. |
+| Team Zero logo | 06 chapter header | The team logo if one exists; otherwise say so and the chip will be removed. Save as `assets/logos/team-zero.svg` or `.png`. |
+
+Logos in place (from Wikimedia Commons, public-domain files, used only to identify the organization): Applied Materials, Northrop Grumman, Genentech, UC Santa Barbara (used for the Begley Lab chapter).
 
 ## Confidentiality
 

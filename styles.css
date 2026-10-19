@@ -206,7 +206,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: var(--tag); color: var(--text); font-size: .88rem; font-weight: 500; }
 .chip svg { width: 14px; height: 14px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-.hero-art { position: relative; justify-self: end; width: 100%; max-width: 400px; }
+.hero-art { position: relative; justify-self: end; width: 100%; max-width: 340px; }
 .arch {
   aspect-ratio: 4 / 5; width: 100%;
   border-radius: 999px 999px var(--radius) var(--radius);
@@ -215,7 +215,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: 10px 10px 0 var(--accent);
 }
 .arch img { width: 100%; height: 100%; object-fit: cover; }
-.hero-art .hero-gear { position: absolute; left: -54px; bottom: 34px; width: 128px; height: 128px; }
 .sticker.hero-sticker { position: absolute; right: -18px; top: 30px; z-index: 2; }
 
 /* sticker badges */
@@ -236,11 +235,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sticker.steel { color: #121512; } }
 
 /* ---------- marquee ---------- */
-.marquee { border-block: 1.5px solid var(--text); background: var(--accent); color: var(--on-accent); overflow: hidden; padding: 14px 0; }
+.marquee { border-block: 1.5px solid var(--text); background: var(--accent); color: var(--on-accent); overflow: hidden; padding: 7px 0; }
 .marquee-track { display: flex; width: max-content; animation: slide 38s linear infinite; }
 .marquee ul { display: flex; gap: 0; flex-shrink: 0; }
-.marquee li { font-family: var(--f-display); font-weight: 700; font-size: 1.35rem; white-space: nowrap; padding: 0 22px; display: flex; align-items: center; gap: 44px; }
-.marquee li::after { content: ""; width: 12px; height: 12px; background: currentColor; border-radius: 3px; transform: rotate(45deg); margin-left: 22px; margin-right: -22px; }
+.marquee li { font-family: var(--f-display); font-weight: 700; font-size: 1rem; white-space: nowrap; padding: 0 18px; display: flex; align-items: center; gap: 36px; }
+.marquee li::after { content: ""; width: 8px; height: 8px; background: currentColor; border-radius: 3px; transform: rotate(45deg); margin-left: 22px; margin-right: -22px; }
 @keyframes slide { to { transform: translateX(-50%); } }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
@@ -515,7 +514,6 @@ section { scroll-margin-top: 70px; }
 /* ---------- responsive ---------- */
 @media (max-width: 1080px) {
   .nav-links a { padding: 8px 9px; }
-  .hero-art .hero-gear { left: -20px; }
 }
 @media (max-width: 960px) {
   :root { --gutter: 24px; }
@@ -550,7 +548,6 @@ section { scroll-margin-top: 70px; }
   .hero-name { font-size: clamp(52px, 19vw, 104px); }
   .hero-name .line + .line { padding-left: .3em; }
   .hero-art { margin-left: 24px; max-width: 280px; }
-  .hero-art .hero-gear { width: 96px; height: 96px; left: -24px; bottom: 20px; }
   .sticker.hero-sticker { right: -8px; top: 20px; }
   .sticker { width: 100px; height: 100px; font-size: .86rem; padding: 12px; }
   .sec, .chapter { padding-block: 72px; }
@@ -585,6 +582,15 @@ section { scroll-margin-top: 70px; }
 }
 
 /* single project photo: smaller, offset like a pinned print */
+/* chapter logo chip in the header row */
+.ch-top { align-items: center; }
+.ch-logo { margin-left: auto; align-self: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; height: 52px; display: flex; align-items: center; justify-content: center; }
+.ch-logo img { height: 100%; width: auto; max-width: 180px; object-fit: contain; display: block; }
+.ch-logo.placeholder { background: transparent; border: 1.5px dashed var(--muted); color: var(--muted); font-family: var(--f-mono); font-size: .78rem; line-height: 1.1; text-align: center; }
+.ch-logo.placeholder small { display: block; font-size: .62rem; opacity: .8; margin-top: 2px; }
+.chapter.block .ch-logo { border-color: rgba(255,255,255,.25); }
+.chapter.block .ch-logo.placeholder { color: var(--block-muted); border-color: var(--block-muted); }
+@media (max-width: 640px) { .ch-logo { height: 42px; padding: 8px 12px; margin-left: 0; justify-self: start; } .ch-logo img { max-width: 130px; } }
 /* chapter body: two columns whose last items stretch so both end on the same line */
 .ch-body { align-items: stretch; }
 .ch-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; position: relative; }
