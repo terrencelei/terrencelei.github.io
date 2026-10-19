@@ -424,11 +424,11 @@ section { scroll-margin-top: 70px; }
 .sort-1 { animation: sort-1 4s ease-in-out infinite; } .sort-2 { animation: sort-2 4s ease-in-out infinite; animation-delay: 2s; }
 @keyframes sort-1 { 0% { transform: translate(0,0); opacity: 1; } 35% { transform: translate(26px,0); } 48% { transform: translate(58px,-20px); opacity: 1; } 50%, 100% { opacity: 0; } }
 @keyframes sort-2 { 0% { transform: translate(0,0); opacity: 1; } 35% { transform: translate(26px,0); } 48% { transform: translate(58px,14px); opacity: 1; } 50%, 100% { opacity: 0; } }
-.lab-on { opacity: 0; animation: lab-on 10s ease-in-out infinite; }
-@keyframes lab-on { 0%, 16% { opacity: 1; } 24%, 100% { opacity: 0; } }
+.lab-on { opacity: 0; animation: lab-on 12s ease-in-out infinite; }
+@keyframes lab-on { 0%, 33% { opacity: 1; } 37%, 83% { opacity: 0; } 87%, 100% { opacity: 1; } }
 .lab-off { animation: lab-off 10s ease-in-out infinite; }
-.tog-knob { transform: translateX(16px); animation: tog 10s ease-in-out infinite; }
-@keyframes tog { 0%, 16% { transform: translateX(0); } 24%, 100% { transform: translateX(16px); } }
+.tog-knob { transform: translateX(16px); animation: tog 12s ease-in-out infinite; }
+@keyframes tog { 0%, 30% { transform: translateX(0); } 34%, 80% { transform: translateX(16px); } 84%, 100% { transform: translateX(0); } }
 @keyframes lab-off { 0%, 18% { opacity: 0; } 26%, 100% { opacity: 1; } }
 .loop-dash { animation: sc-fb 1.2s linear infinite; }
 @keyframes scan { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
